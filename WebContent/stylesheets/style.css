@@ -1,0 +1,232 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+@font-face {
+  font-family: 'FuturaBkBTBook';
+  src: url("../font/futura_bk_bt_book-webfont.eot");
+  src: url("../font/futura_bk_bt_book-webfont.eot?#iefix") format("embedded-opentype"), url("../font/futura_bk_bt_book-webfont.woff") format("woff"), url("../font/futura_bk_bt_book-webfont.ttf") format("truetype"), url("../font/futura_bk_bt_book-webfont.svg#FuturaBkBTBook") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*========= Base Colors ===========*/
+/*========= Caculated Colors ===========*/
+/* ================ GENERAL ===================*/
+/* ================ HEADER =================== */
+/* ================ MENU ===================== */
+/* ================ BOX ======================= */
+/* ================ TABLE ===================== */
+/* ================ FEEDS ===================== */
+/* ================ ANIVERSARIOS =============== */
+/* ================ VIDEOS ===================== */
+/* ================ FORM ======================= */
+/* ================ RESERVAS =================== */
+/* ============= CSS Generico ==============*/
+/* line 6, ../sass/_base.scss */
+#content {
+  margin: 15px 15px 15px 230px;
+}
+
+/* line 10, ../sass/_base.scss */
+.fade {
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+}
+/* line 14, ../sass/_base.scss */
+.fade.out {
+  opacity: 0;
+}
+/* line 17, ../sass/_base.scss */
+.fade.in {
+  opacity: 1;
+}
+
+/* line 24, ../sass/_base.scss */
+i.ativo {
+  color: #00CD00;
+  text-shadow: 0px 1px 0px gray;
+}
+/* line 28, ../sass/_base.scss */
+i.inativo {
+  color: #ed1c24;
+  text-shadow: 0px 1px 0px gray;
+}
+
+/* line 34, ../sass/_base.scss */
+.foto-moldura {
+  padding: 3px;
+  background: #FFF;
+  position: relative;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: 0px 0px 7px gray;
+  -webkit-box-shadow: 0px 0px 7px gray;
+  box-shadow: 0px 0px 7px gray;
+}
+
+/* line 42, ../sass/_base.scss */
+.half {
+  width: 47%;
+  margin: 10px  auto;
+}
+
+/* line 47, ../sass/_base.scss */
+.separador {
+  display: inline-block;
+  background: #ececec;
+  width: 1px;
+  height: 15px;
+  margin: 0 10px;
+}
+
+/* line 55, ../sass/_base.scss */
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* line 61, ../sass/_base.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 66, ../sass/_base.scss */
+.show-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 72, ../sass/_base.scss */
+.pagination {
+  text-align: center;
+}
+
+/* line 1, ../sass/_login.scss */
+.login-container {
+  max-width: 410px;
+  margin: 0 auto;
+  font-family: 'FuturaBkBTBook', Arial, sans-serif !important;
+}
+/* line 6, ../sass/_login.scss */
+.login-container label {
+  font-size: 18px;
+}
+/* line 10, ../sass/_login.scss */
+.login-container form {
+  margin: 0;
+}
+/* line 12, ../sass/_login.scss */
+.login-container form input[type="text"], .login-container form input[type="password"] {
+  height: 30px !important;
+  width: 370px;
+  background: #ececec;
+  -moz-box-shadow: 0px 2px 0px #b5b5b5;
+  -webkit-box-shadow: 0px 2px 0px #b5b5b5;
+  box-shadow: 0px 2px 0px #b5b5b5;
+  border: 0;
+}
+/* line 20, ../sass/_login.scss */
+.login-container form .checkbox {
+  font-size: 14px;
+}
+/* line 24, ../sass/_login.scss */
+.login-container form .login-button {
+  color: #FFF;
+  text-shadow: 1px 1px 1px black;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM0NjQ2NDYiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzNmM2YzZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, #464646), color-stop(50%, #3f3f3f));
+  background-image: -moz-linear-gradient(#464646 50%, #3f3f3f 50%);
+  background-image: -webkit-linear-gradient(#464646 50%, #3f3f3f 50%);
+  background-image: linear-gradient(#464646 50%, #3f3f3f 50%);
+}
+/* line 28, ../sass/_login.scss */
+.login-container form .login-button:hover, .login-container form .login-button:focus {
+  background-position: 0;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM1OTU5NTkiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzYwNjA2MCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, #595959), color-stop(50%, #606060));
+  background-image: -moz-linear-gradient(#595959 50%, #606060 50%);
+  background-image: -webkit-linear-gradient(#595959 50%, #606060 50%);
+  background-image: linear-gradient(#595959 50%, #606060 50%);
+}
+/* line 34, ../sass/_login.scss */
+.login-container form .redefinir-senha {
+  display: block;
+  margin-top: 10px;
+}
+
+/* line 43, ../sass/_login.scss */
+.box-login-empresa {
+  margin-top: 50px;
+  height: 90px;
+}
+/* line 46, ../sass/_login.scss */
+.box-login-empresa img {
+  float: left;
+}
+/* line 49, ../sass/_login.scss */
+.box-login-empresa .login-empresa-nome {
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-top: 30px;
+  text-align: center;
+}
+
+/* line 58, ../sass/_login.scss */
+.box-login-title {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiM0NjQ2NDYiLz48c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzNmM2YzZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(50%, #464646), color-stop(50%, #3f3f3f));
+  background-image: -moz-linear-gradient(#464646 50%, #3f3f3f 50%);
+  background-image: -webkit-linear-gradient(#464646 50%, #3f3f3f 50%);
+  background-image: linear-gradient(#464646 50%, #3f3f3f 50%);
+  color: #FFF;
+  height: 45px;
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 44px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 70, ../sass/_login.scss */
+.box-login-cont {
+  background: #FFF;
+  padding: 20px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  -moz-box-shadow: 0px 2px 0px #b5b5b5;
+  -webkit-box-shadow: 0px 2px 0px #b5b5b5;
+  box-shadow: 0px 2px 0px #b5b5b5;
+}
+/* line 76, ../sass/_login.scss */
+.box-login-cont #erro {
+  text-align: center;
+  color: #ed1c24;
+}
+
+/* line 82, ../sass/_login.scss */
+.ass-sistema {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* line 88, ../sass/_login.scss */
+#mensagem-redefinir {
+  text-align: center;
+}

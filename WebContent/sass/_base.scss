@@ -1,0 +1,74 @@
+@import "font";
+@import "color";
+@import "compass/css3";
+
+/* ============= CSS Generico ==============*/
+#content {
+  margin: 15px 15px 15px 230px;
+}
+
+.fade {
+  @include transition-property(opacity);
+  @include transition-duration(400ms);
+
+  &.out {
+    opacity:0;
+  }
+  &.in {
+    opacity:1;
+  }
+}
+
+i {
+
+  &.ativo { 
+    color: $icon-ativo-color; 
+    @include text-shadow(0px 1px 0px $base-color);
+  }
+  &.inativo { 
+    color: $icon-inativo-color;
+    @include text-shadow(0px 1px 0px $base-color); 
+  }
+}
+
+.foto-moldura {
+  padding: 3px;
+  background: $light-color;
+  position: relative;
+  @include border-radius(3px);
+  @include box-shadow(0px 0px 7px $default-box-shadow-color);
+}
+
+.half {
+  width: 47%;
+  margin: 10px  auto;
+}
+
+.separador{
+  display: inline-block;
+  background: $default-separator-color;
+  width: 1px;
+  height: 15px;
+  margin: 0 10px;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a {
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+.show-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pagination {
+  text-align: center;
+}

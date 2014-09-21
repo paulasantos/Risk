@@ -1,0 +1,85 @@
+/*========= Base Colors ===========*/
+
+$base-color: gray !default;
+$light-color: #FFF !default;
+$dark-color: black !default;
+
+$first-standout-color: #ed1c24 !default; // Vermelho
+$second-standout-color: #2d80d3 !default; // Azul
+$third-standout-color: #00CD00 !default; // Verde
+
+/*========= Caculated Colors ===========*/
+
+$base-color-darkest: scale-color($base-color, $red: -50.39%, $green: -50.39%, $blue: -50.39%);
+$base-color-dark: scale-color($base-color, $red: -44.96%, $green: -44.96%, $blue: -44.96%);
+$base-color-light: scale-color($base-color, $red: 42.06%, $green: 42.06%, $blue: 42.06%);
+$base-color-lightest: scale-color($base-color, $red: 85.71%, $green: 85.71%, $blue: 85.71%);
+
+/* ================ GENERAL ===================*/
+$default-text-color: #555 !default;
+$default-border-color: $base-color-lightest !default;
+$default-link-color: $second-standout-color;
+$default-box-shadow-color: $base-color;
+$default-separator-color: $base-color-lightest;
+
+$icon-ativo-color: $third-standout-color;
+$icon-inativo-color: $first-standout-color;
+
+
+/* ================ HEADER =================== */
+$header-background-color: $light-color;
+$header-icon-color: $first-standout-color;
+$header-name-color: $first-standout-color;
+$header-options-link-color: $first-standout-color;
+
+
+/* ================ MENU ===================== */
+$menu-text-color: $light-color;
+$menu-icon-color: $first-standout-color;
+$menu-background-top-color: $base-color-darkest;
+$menu-background-bottom-color: $base-color-dark;
+
+$submenu-background-color: $base-color-light;
+$submenu-text-shadow-color: $base-color;
+
+/* ================ BOX ======================= */
+$box-background-color: $light-color;
+$box-form-action-shadow-color: $base-color-light;
+$box-cont-border-bottom-color: $base-color-light;
+
+/* ================ TABLE ===================== */
+$table-thead-color: $base-color-lightest;
+
+/* ================ FEEDS ===================== */
+$feed-box-shadow-color: $base-color-light;
+$feed-post-title-background-color: $base-color-lightest;
+$feed-usuario-title-color: $first-standout-color;
+$feed-post-text-background-color: $light-color;
+$feed-textarea-outline-color: $base-color-light;
+$feed-button-area-background-color: $base-color-lightest;
+$feed-enviar-button-background-color: $base-color-light;
+$feed-enviar-button-shadow-color: $base-color;
+$feed-enviar-button-text-shadow: $light-color;
+
+/* ================ ANIVERSARIOS =============== */
+$aniversario-background-color: $base-color-lightest;
+$aniversario-text-color: $base-color;
+$aniversario-dia-text-color: $first-standout-color;
+
+/* ================ VIDEOS ===================== */
+$videos-box-shadow-color: $base-color-light;
+$videos-border-color: $base-color-light;
+$videos-background-color: $light-color;
+$videos-play-icon-color: $light-color;
+$videos-play-icon-shadow-color: $base-color-dark;
+
+/* ================ FORM ======================= */
+$form-separator-background-color: $base-color-lightest;
+$form-foto-edit-text-color: $light-color;
+$form-foto-edit-background-color: $base-color;
+
+/* ================ RESERVAS =================== */
+$reserva-menu-background-color: $base-color-lightest;
+
+
+

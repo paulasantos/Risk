@@ -9,4 +9,10 @@ import br.jogo.risk.dao.JogadorDao;
 @RequestScoped
 public class JogadorDaoImpl extends GenericDaoImpl implements JogadorDao{
 
+	@Override
+	public boolean jogadorExist(Long jogadorId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

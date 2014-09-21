@@ -11,7 +11,7 @@
 						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	
 	<!--Scans for @Repository, @Service and @Component -->
-	<context:component-scan base-package="br.jogo.risk.model" />
+	<context:component-scan base-package="br.jogo.risk" />
 	
 	<!--  Activates scanning of @Autowired -->
 	<context:annotation-config />
