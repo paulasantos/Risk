@@ -1,9 +1,39 @@
-<html>
-<label>Nome:</label>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<input id="nome" name="jogador.nome" value="${jogador.nome}"/>
+<jsp:include page="../index/header.jsp" />
+<link rel="stylesheet" type="text/css" href="/risk/stylesheets/login.css">
+<div class="account-wrapper">
+	<div class="account-body">
 
-<label>Login:</label>
-<input id="login" name="jogador.nome" value="${jogador.nome}"/>
+		<h3>Bem-Vindo ao RISK</h3>
 
-</html>
+		<form id="loginForm" class="form account-form" action="<c:url value="/login/efetuarLogin"/>"  method="post">
+		
+        	<div class="form-group">
+        		<input type="text" class="form-control" id="login-username" placeholder="Usuário" name="jogador.login" value="${jogador.login}"/>
+        	
+        	</div>
+        
+        	<div class="form-group">
+        		<input type="password" class="form-control" id="login-password" placeholder="Senha" name="jogador.senha" value="${jogador.senha}"/>
+        	</div>
+			
+			<div class="form-group clearfix">
+				<div class="pull-left">
+					<a class="link" href="<c:url value='/redefinirSenha'/>">Esqueci minha senha</a>
+				</div>
+				<div class="pull-right">
+					<a class="link" href="<c:url value='/efetuarCadastro'/>">Efetuar Cadastro</a>
+				</div>
+			</div>
+			
+			<button type="submit" class="btn btn-primary btn-block btn-lg"> Enviar</button>
+		</form>
+	</div>
+	
+	<div class="account-footer">
+	</div>
+	
+</div>
+
+<jsp:include page="../index/footer.jsp" />

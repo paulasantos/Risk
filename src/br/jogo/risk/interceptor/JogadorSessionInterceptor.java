@@ -1,7 +1,5 @@
 package br.jogo.risk.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-
 import br.com.caelum.vraptor.InterceptionException;
 import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
@@ -14,12 +12,10 @@ import br.jogo.risk.dao.JogadorSession;
 public class JogadorSessionInterceptor implements Interceptor{
 
 	private Result result;
-	private HttpServletRequest request;
 	private JogadorSession jogadorSession;
 
-	public JogadorSessionInterceptor(Result result, HttpServletRequest request, JogadorSession jogadorSession) {
+	public JogadorSessionInterceptor(Result result, JogadorSession jogadorSession) {
 		this.result = result;
-		this.request = request;
 		this.jogadorSession = jogadorSession;
 	}
 	
@@ -32,12 +28,11 @@ public class JogadorSessionInterceptor implements Interceptor{
 	public void intercept(InterceptorStack stack, ResourceMethod method, Object object) throws InterceptionException {
 		if(jogadorSession.getJogador() != null){
 			result.include("jogadorNome", jogadorSession.getJogador().getNome())
-			.include("jogadorId", jogadorSession.getJogador().getId());
-			
-			System.out.println("Interceptando: " + request);
+			.include("jogadorId", jogadorSession.getJogador().getId())
+			.include("logado", true);			
 			stack.next(method, object);
 		}else{
-			System.out.println("Interceptando: " + request);
+			result.include("logado", false);
 			stack.next(method, object);
 		}
 	}

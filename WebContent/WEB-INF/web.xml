@@ -21,4 +21,26 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
+	
+	<error-page>    
+        <error-code>403</error-code>    
+        <location>/acesso_negado.jsp</location>    
+    </error-page>
+    
+    <error-page>
+    	<error-code>404</error-code>
+    	<location>/page_not_found.jsp</location>
+    </error-page>
+    
+    <error-page>
+    	<error-code>500</error-code>
+    	<location>/erro_interno.jsp</location>
+    </error-page>
+    
+    <error-page>
+    	<error-code>401</error-code>
+    	<location>/erro_sessao.jsp</location>
+    </error-page>
+	
+	
 </web-app>

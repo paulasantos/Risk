@@ -10,34 +10,32 @@ import br.jogo.risk.dao.JogadorSession;
 import br.jogo.risk.model.Jogador;
 
 @Resource
-@Path("/login")
-public class LoginController {
+@Path("")
+public class IndexController {
 	
 	private Result result;
 	private JogadorDao jogadorDao;
 	private JogadorSession jogadorSession;
 
-	public LoginController(Result result, JogadorDao jogadorDao, JogadorSession jogadorSession) {
+	public IndexController(Result result, JogadorDao jogadorDao, JogadorSession jogadorSession) {
 		this.result = result;
 		this.jogadorDao = jogadorDao;
 		this.jogadorSession = jogadorSession;
 	}
 	
-	@Get("")
-	public void login(){
+	@Get("/redefinirSenha")
+	public void redefinirSenha(){
 		
 	}
 	
-	@Post("/efetuarLogin")
-	public void logar(Jogador jogador){
-		Jogador jogadorTemp = jogadorDao.find(jogador.getLogin(), jogador.getSenha());
-		if(jogadorTemp != null){
-			jogadorSession.setJogador(jogadorTemp);
-			result.redirectTo(JogoController.class).inicio();
-		}
-		else{
-			result.include("message", "Login ou senha inválidos").redirectTo(this).login();
-		}
+	@Get("/efetuarCadastro")
+	public void formulario(){	
 	}
 	
+	@Post("/cadastrarJogador")
+	public void salvar(Jogador jogador){
+		jogadorDao.save(jogador);
+		jogadorSession.setJogador(jogador);
+		result.redirectTo(JogoController.class).inicio();
+	}
 }
