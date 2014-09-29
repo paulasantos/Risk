@@ -1,5 +1,6 @@
 package br.jogo.risk.dao.impl;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +14,11 @@ public class JogadorDaoImpl extends GenericDaoImpl implements JogadorDao{
 
 	@Override
 	public boolean jogadorExist(Long jogadorId) {
-		// TODO Auto-generated method stub
-		return false;
+		Criteria criteria = getSession().createCriteria(Jogador.class, "j");
+		
+		criteria.add(Restrictions.eq("j.id", jogadorId));
+
+		return (criteria.list().size() > 0);
 	}
 
 	@Override
