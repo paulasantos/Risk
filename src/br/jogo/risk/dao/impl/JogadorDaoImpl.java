@@ -1,6 +1,7 @@
 package br.jogo.risk.dao.impl;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
@@ -29,4 +30,21 @@ public class JogadorDaoImpl extends GenericDaoImpl implements JogadorDao{
 				.uniqueResult();
 	}
 
+	@Override
+	public boolean verificarDisponibilidade(String login) {
+		Criteria criteria = getSession().createCriteria(Jogador.class, "j");
+		criteria.add(Restrictions.eq("j.login", login));
+		
+		return (criteria.list().size() == 0) ;
+	}
+	
+	public void updateJogadorByLogin(Jogador jogador){
+		String hql = "update Jogador set senha = :senha where login = :login";
+        Query query = getSession().createQuery(hql);
+        
+        query.setString("senha",jogador.getSenha());
+        query.setString("login",jogador.getLogin());
+
+        query.executeUpdate();
+	}
 }

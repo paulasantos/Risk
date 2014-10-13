@@ -1,5 +1,6 @@
 package br.jogo.risk.controller;
 
+import static br.com.caelum.vraptor.view.Results.json;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
@@ -37,5 +38,18 @@ public class IndexController {
 		jogadorDao.save(jogador);
 		jogadorSession.setJogador(jogador);
 		result.redirectTo(JogoController.class).inicio();
+	}
+
+	@Post("/atualizarSenha")
+	public void atualizarSenha(Jogador jogador){
+		jogadorDao.updateJogadorByLogin(jogador);
+		jogador = jogadorDao.find(jogador.getLogin(), jogador.getSenha());
+		jogadorSession.setJogador(jogador);
+		result.redirectTo(JogoController.class).inicio();
+	}
+	
+	@Get("/verificarDisponibilidade/{login}")
+	public void verificarDisponibilidade(String login){
+		result.use(json()).from(jogadorDao.verificarDisponibilidade(login)).serialize();
 	}
 }

@@ -8,4 +8,8 @@ public interface JogadorDao extends GenericDao{
 
 	public Jogador find(String login, String senha);
 
+	public boolean verificarDisponibilidade(String login);
+
+	public void updateJogadorByLogin(Jogador jogador);
+
 }

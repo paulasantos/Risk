@@ -10,7 +10,7 @@ import br.jogo.risk.dao.JogadorSession;
 import br.jogo.risk.model.Jogador;
 
 @Resource
-@Path("/login")
+@Path("/")
 public class LoginController {
 	
 	private Result result;

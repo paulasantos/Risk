@@ -1,20 +1,21 @@
+body{
+	background-color: cadetblue;
+}
 .account-wrapper{
 	position: relative;
-	width: 30%;
-	padding: 35px 0;
+	width: 392px;
+	padding: 140px 0;
 	margin: 0 auto;
 	text-align: center;
+	min-width: 392px;
 	
 	.account-body{
 		position: relative;
-		padding: 20px 30px 10px;
-		margin-bottom: 1em;
+		padding: 0px 30px 10px;
 		background-color: #fff;
 		border: 1px solid #ddd;
-		border-top-right-radius: 4px;
-		border-top-left-radius: 4px;
-		border-bottom-right-radius: 4px;
-		border-bottom-left-radius: 4px;
+		border-radius: 4px;
+		font-family: cursive;
 		-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 		
@@ -23,6 +24,26 @@
 			margin-top: 2em;
 			margin-bottom: 2em;
 			text-align: left;
+			.form-group{
+				span{
+					i{
+					 	padding-right: 5px;
+					 }
+				}
+				.success{
+					color: rgb(55, 253, 5);
+				}
+				.info{
+					color: blue;
+				}
+				.error{
+						color: red;
+				}
+			}
+			p{
+				font-size: 20pt;
+				text-align: center;
+			}
 		}
 	}
 	.account-footer {
@@ -30,7 +51,6 @@
 		margin-top: 1.5em;
 	}
 }
-
 .form {
 	display: block;
 	margin-top: 0em;

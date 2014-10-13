@@ -11,7 +11,7 @@ import br.jogo.risk.dao.ProjetoDao;
 import br.jogo.risk.model.Projeto;
 
 @Resource
-@Path("/projeto")
+@Path("/jogo")
 public class JogoController {
 
 	
