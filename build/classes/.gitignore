@@ -1,8 +1,0 @@
-/br
-WebContent/WEB-INF/classes/
-.classpath
-.project
-.settings/
-build/*
-target/*
-.sass-cache/*

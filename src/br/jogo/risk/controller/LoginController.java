@@ -28,7 +28,7 @@ public class LoginController {
 		
 	}
 	
-	@Post("/efetuarLogin")
+	@Post("efetuarLogin")
 	public void logar(Jogador jogador){
 		Jogador jogadorTemp = jogadorDao.find(jogador.getLogin(), jogador.getSenha());
 		if(jogadorTemp != null){

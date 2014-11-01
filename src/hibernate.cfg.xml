@@ -13,5 +13,13 @@
                 <property name="org.hibernate.envers.store_data_at_delete">true</property>
                 
 				<mapping class="br.jogo.risk.model.Jogador" />
+				<mapping class="br.jogo.risk.model.Jogo" />
+				<mapping class="br.jogo.risk.model.Projeto" />
+				<mapping class="br.jogo.risk.model.PlanoDeRiscos" />
+				<mapping class="br.jogo.risk.model.Pontuacao" />
+				<mapping class="br.jogo.risk.model.Categoria" />
+				<mapping class="br.jogo.risk.model.Risco" />
+				<mapping class="br.jogo.risk.model.RiscoAnalisado" />
+				<mapping class="br.jogo.risk.model.AcaoEstrategica" />
         </session-factory>
 </hibernate-configuration>  

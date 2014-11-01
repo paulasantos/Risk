@@ -1,5 +1,6 @@
 package br.jogo.risk.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,16 @@ public class Projeto {
 	
 	private String nome;
 	
+	@Column(columnDefinition="TEXT")
 	private String descricao;
+	
+	private String fase;
+	
+	private Double orcamento;
+	
+	private Double cronograma;
+	
+	private Integer qtdMembros;
 
 	public Long getId() {
 		return id;
@@ -37,7 +47,39 @@ public class Projeto {
 		return descricao;
 	}
 
-	public void setDescrcao(String descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+		
+	public String getFase() {
+		return fase;
+	}
+
+	public void setFase(String fase) {
+		this.fase = fase;
+	}
+
+	public Double getOrcamento() {
+		return orcamento;
+	}
+
+	public void setOrcamento(Double orcamento) {
+		this.orcamento = orcamento;
+	}
+
+	public Double getCronograma() {
+		return cronograma;
+	}
+
+	public void setCronograma(Double cronograma) {
+		this.cronograma = cronograma;
+	}
+
+	public Integer getQtdMembros() {
+		return qtdMembros;
+	}
+
+	public void setQtdMembros(Integer qtdMembros) {
+		this.qtdMembros = qtdMembros;
 	}
 }

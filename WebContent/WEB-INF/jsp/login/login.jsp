@@ -6,7 +6,7 @@
 
 		<h3>Bem-Vindo ao RISK</h3>
 
-		<form id="loginForm" class="form account-form" action="<c:url value="/login/efetuarLogin"/>"  method="post">
+		<form id="loginForm" class="form account-form" action="<c:url value="/efetuarLogin"/>"  method="post">
 		
         	<div class="form-group">
         		<input type="text" class="form-control" id="login-username" placeholder="Usuário" name="jogador.login"/>
