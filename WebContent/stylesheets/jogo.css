@@ -1,0 +1,30 @@
+/* line 1, ../sass/jogo.scss */
+body {
+  background-color: cadetblue !important;
+}
+
+/* line 4, ../sass/jogo.scss */
+.content {
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  margin: 0px auto;
+  margin-top: 60px;
+  font-family: cursive;
+}
+/* line 12, ../sass/jogo.scss */
+.content .tab-pane {
+  margin-top: 24px;
+  margin-bottom: 30px;
+}
+
+/* line 18, ../sass/jogo.scss */
+#jogar {
+  text-align: center;
+}
+
+/* line 22, ../sass/jogo.scss */
+.selectProjeto {
+  margin: 0px auto;
+}
