@@ -21,5 +21,6 @@
 				<mapping class="br.jogo.risk.model.Risco" />
 				<mapping class="br.jogo.risk.model.RiscoAnalisado" />
 				<mapping class="br.jogo.risk.model.AcaoEstrategica" />
+				<mapping class="br.jogo.risk.model.Fase" />
         </session-factory>
 </hibernate-configuration>  

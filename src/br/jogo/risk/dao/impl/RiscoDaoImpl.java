@@ -16,6 +16,12 @@ public class RiscoDaoImpl extends GenericDaoImpl implements RiscoDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Risco> findRiscosByProjeto(Long projetoId) {
-		return (List<Risco>) getSession().createCriteria(Risco.class, "r").add(Restrictions.eq("r.projeto.id", projetoId));
+		return (List<Risco>) getSession().createCriteria(Risco.class, "r").add(Restrictions.eq("r.projeto.id", projetoId)).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Risco> find() {
+		return (List<Risco>) getSession().createCriteria(Risco.class, "r").list();
 	}
 }

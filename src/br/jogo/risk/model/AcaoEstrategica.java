@@ -22,6 +22,13 @@ public class AcaoEstrategica {
 	@ManyToOne
 	private RiscoAnalisado riscoAnalisado;
 	
+	@ManyToOne
+	private Fase faseDeRealizacao;
+	
+	private String responsáveis;
+	
+	private Double custo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -52,5 +59,29 @@ public class AcaoEstrategica {
 
 	public void setRiscoAnalisado(RiscoAnalisado riscoAnalisado) {
 		this.riscoAnalisado = riscoAnalisado;
+	}
+
+	public Fase getFaseDeRealizacao() {
+		return faseDeRealizacao;
+	}
+
+	public void setFaseDeRealizacao(Fase faseDeRealizacao) {
+		this.faseDeRealizacao = faseDeRealizacao;
+	}
+
+	public String getResponsáveis() {
+		return responsáveis;
+	}
+
+	public void setResponsáveis(String responsáveis) {
+		this.responsáveis = responsáveis;
+	}
+
+	public Double getCusto() {
+		return custo;
+	}
+
+	public void setCusto(Double custo) {
+		this.custo = custo;
 	}
 }

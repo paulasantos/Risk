@@ -8,4 +8,6 @@ public interface RiscoDao extends GenericDao{
 	
 	public List<Risco> findRiscosByProjeto(Long projetoId);
 
+	public List<Risco> find();
+
 }
