@@ -2,23 +2,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/risk/stylesheets/jogo.css">
-
-<jsp:include page="../index/header.jsp" />
-
-<jsp:include page="../index/menu.jsp" />
 <script type="text/javascript" src="/risk/js/risk/jogo.js"></script>
 
-	<div id="content" class="content" style="width: 60%; text-align: justify;">
+<jsp:include page="../index/header.jsp" />
+<jsp:include page="../index/menu.jsp" />
+
+<div id="content" class="content" style="text-align: justify;">
+	<div class="content">
 		<h3>Projeto: ${projeto.nome}</h3>
 		${projeto.descricao}
+	</div>
+
+
 		<div class="controll-group">
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#riscos" style="margin-left: 10px;">Iniciar Plano de Riscos</button>
 			<button id="btnAjudaTecnica" class="btn btn-primary" style="margin-left: 10px;">Ajuda Técnica</button>
 		</div>
 	</div>
+	
 	<div class="modal fade" id="riscos" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
 		<div class="modal-dialog">
 			<form id="riscosForm" action="<c:url value="/jogo/riscos"/>" method="post">
+				<input type="hidden" name="projeto.id" value="${projeto.id}">
 				<div class="modal-content">
 				<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Sair</span></button>

@@ -82,6 +82,14 @@ public class RiscoAnalisado {
 	public void setEstrategia(Character estrategia) {
 		this.estrategia = estrategia;
 	}
+	
+	public PlanoDeRiscos getPlanoDeRiscos() {
+		return planoDeRiscos;
+	}
+
+	public void setPlanoDeRiscos(PlanoDeRiscos planoDeRiscos) {
+		this.planoDeRiscos = planoDeRiscos;
+	}
 
 	public List<AcaoEstrategica> getAcoesEstrategicas() {
 		return acoesEstrategicas;

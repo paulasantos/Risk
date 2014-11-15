@@ -17,6 +17,9 @@ public class Projeto {
 	private String nome;
 	
 	@Column(columnDefinition="TEXT")
+	private String resumo;
+	
+	@Column(columnDefinition="TEXT")
 	private String descricao;
 	
 	private String fase;
@@ -41,6 +44,14 @@ public class Projeto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getResumo() {
+		return resumo;
+	}
+
+	public void setResumo(String resumo) {
+		this.resumo = resumo;
 	}
 
 	public String getDescricao() {

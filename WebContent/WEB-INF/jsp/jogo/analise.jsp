@@ -7,16 +7,29 @@
 
 <jsp:include page="../index/menu.jsp" />
 <script type="text/javascript" src="/risk/js/risk/jogo.js"></script>
-<form class="form-horizontal">
-	<div class="controls" style= "background-color: whitesmoke;  border-color: black; border: 1px solid #ddd; max-width: 900px; min-width: 470px; font-family: cursive; font-weight: 500;">
-		<div class="form-group">
+
+
+<div>
+	<div class="vertical-menu nav-collapse navbar-left navbar" style="width: 220px;height: auto !important;min-height: 100%;border-color: black; border: 1px solid #ddd">
+		    <ul class="nav">
+		        <li class="title">Riscos</li>
+		    	<c:forEach items="${riscosSelecionados}" var="riscoSelecionado" varStatus="countRiscos">
+			       <li><a href='<c:url value="/jogo/risco/${riscoSelecionado.id}"/>'>${countRiscos} - Risco</a></li>
+		    	</c:forEach>
+		    	<li><a href='<c:url value="/jogo/risco/finalizar"/>'>Concluir Plano de Riscos</a></li>
+		    </ul>
+	</div>
+	
+	<div class="controls" style= "background-color: whitesmoke;  border-color: black; border: 1px solid #ddd; height: auto !important;min-height: 100%;">
+		<div class="form-horizontal" style="display: table; margin-left: 0 !important; padding-left: 0 !important">
+		<div class="form-group" style="margin-left: -70x !important">
 			<label for="tipo" class="col-sm-2 control-label"style="font-weight: normal;">Tipo do Risco</label>
 			<div class="col-sm-10">
 				<input type="radio" name="tipo" value="P"> Positivo 
 				<input type="radio" name="tipo" value="N"> Negativo
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: -70px !important">
 			<label for="probabilidade" class="col-sm-2 control-label" style="font-weight: normal;">Probabilidade</label>
 			<div class="col-sm-10">
 				<select id="probabilidade" name="probabilidade" class="required form-control" style="width: 138px;">
@@ -26,7 +39,7 @@
 				</select>
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: -70px !important">
 			<label for="impacto" class="col-sm-2 control-label" style="font-weight: normal;">Impacto</label>
 			<div class="col-sm-10">
 				<select id="impacto" name="impacto" class="required form-control" style="width: 138px;">
@@ -36,7 +49,7 @@
 				</select>
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: -70px !important">
 			<label for="prioridade" class="col-sm-2 control-label" style="font-weight: normal;">Prioridade</label>
 			<div class="col-sm-10">
 				<select id="prioridade" name="prioridade" class="required form-control" style="width: 138px;">
@@ -46,7 +59,7 @@
 				</select>
 			</div>
 		</div>
-		<div class="form-group">
+		<div class="form-group" style="margin-left: -70px !important">
 			<label for="resposta" class="col-sm-2 control-label" style="font-weight: normal;">Tipo de Resposta</label>
 			<div class="col-sm-10">
 				<select id="resposta" name="resposta" class="required form-control" style="width: 138px;"
@@ -57,7 +70,7 @@
 				</select>
 			</div>
 		</div>
-		<div class="form-group table-responsive">
+		<div class="form-group table-responsive" style="margin-left: -70px !important">
 			<label for="acaoResposta" class="col-sm-2 control-label" style="font-weight: normal;">Ação de Resposta</label>
 			<div class="col-sm-10" style="padding-right: 50px !important;">
 				<table class="table table-bordered" style="font-size: 14px; text-align: center;">
@@ -83,8 +96,8 @@
 					</tbody>
 				</table>
 			</div>
+			</div>
 		</div>
-	<button class="btn btn-primary btn-lg" style="margin: 10px 450px;">Salvar</button>
-	</div>
-	
-</form>
+		
+	</div>	
+</div>

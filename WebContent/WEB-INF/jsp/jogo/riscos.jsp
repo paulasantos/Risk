@@ -10,11 +10,13 @@
 
 	<form id="riscosForm" action="<c:url value="/jogo/riscos"/>" method="post">
 		<div>
-			<c:forEach items="${planoDeRiscos.riscosAnalisados}" var="riscosAnalisados" varStatus="countRiscos">
+			<c:forEach items="${planoDeRiscos.riscosAnalisados[]}" var="riscosAnalisados" varStatus="countRiscos">
 				<label name="riscosAnalisados[${countRiscos.count -1}].risco.id"> ${riscosAnalisados[countRiscos.count -1 ].risco.descricao}</label>
 			</c:forEach>
 		</div>
 	</form>
+	<jsp:include page="../jogo/analise.jsp" />
+	
 
 <div id="riscos"></div>
 <script type="text/javascript">

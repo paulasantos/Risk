@@ -11,13 +11,9 @@
 	
 		<link rel="stylesheet" type="text/css" href="/risk/css/fontAwesome/font-awesome.css">
 		<link rel="stylesheet" type="text/css" href="/risk/css/fontAwesome/font-awesome.min.css">
-		
-		
 		<link rel="stylesheet" type="text/css" href="/risk/css/fontAwesome/font-awesome.min.css">
-		
 			
 		<script type="text/javascript" src="/risk/js/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="/risk/js/bootstrap.js"></script>
-	
 	</head>
 <body>
