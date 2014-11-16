@@ -57,10 +57,37 @@ body {
 }
 /* line 55, ../sass/jogo.scss */
 .content .projeto {
-  min-width: 500px;
+  min-width: 497px;
+  width: 497px;
   height: 398px;
+  min-height: 398px;
   float: left;
   border-right: 1px solid #ddd;
   border-bottom-left-radius: 4px;
   background: beige;
+}
+/* line 66, ../sass/jogo.scss */
+.content .riscosProjeto {
+  margin-top: 10px;
+  margin-left: 10px;
+  min-width: 488px;
+  width: 488px;
+  border-bottom-right-radius: 4px;
+  height: 389px;
+  float: right;
+}
+/* line 74, ../sass/jogo.scss */
+.content .riscosProjeto .riscos {
+  margin-left: -14px;
+  background: khaki;
+  margin-top: -11px;
+}
+/* line 78, ../sass/jogo.scss */
+.content .riscosProjeto .riscos #titulo {
+  padding-bottom: 5px;
+  margin-left: 10px;
+}
+/* line 82, ../sass/jogo.scss */
+.content .riscosProjeto .riscos .mCSB_container {
+  margin-left: 10px;
 }

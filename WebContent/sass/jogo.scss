@@ -53,11 +53,35 @@ body{
 		}
 		
 		.projeto{
-			min-width: 500px;
+			min-width: 497px;
+			width: 497px;
 			height: 398px;
+			min-height: 398px;
 			float: left;
 			border-right: 1px solid #ddd;
 			border-bottom-left-radius: 4px;
 			background: beige;
+		}
+		
+		.riscosProjeto{
+			margin-top: 10px;
+			margin-left: 10px;
+			min-width: 488px;
+			width: 488px;
+			border-bottom-right-radius: 4px;
+			height: 389px;
+			float: right;
+			.riscos{
+				margin-left: -14px;
+				background: khaki;
+				margin-top: -11px;
+				#titulo{
+					padding-bottom: 5px;
+					margin-left: 10px;
+				}
+				.mCSB_container{
+					margin-left: 10px;
+				}
+			}
 		}
 }

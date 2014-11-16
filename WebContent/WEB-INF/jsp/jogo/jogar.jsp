@@ -7,41 +7,36 @@
 <jsp:include page="../index/header.jsp" />
 <jsp:include page="../index/menu.jsp" />
 
-<div id="content" class="content" style="text-align: justify;">
-	<div class="content">
-		<h3>Projeto: ${projeto.nome}</h3>
-		${projeto.descricao}
-	</div>
-
-
-		<div class="controll-group">
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#riscos" style="margin-left: 10px;">Iniciar Plano de Riscos</button>
-			<button id="btnAjudaTecnica" class="btn btn-primary" style="margin-left: 10px;">Ajuda Técnica</button>
+<div id="content" class="content">
+	<div class="projeto  mCustomScrollbar">
+		<div style="text-align: center;">
+			<h3>${projeto.nome}</h3>
+		</div>
+		<div style="text-align: justify; margin-left: 20px; margin-right: 5px">
+			${projeto.descricao}
 		</div>
 	</div>
 	
-	<div class="modal fade" id="riscos" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
-		<div class="modal-dialog">
+	<div class="riscosProjeto ">
+		<div class="riscos">
 			<form id="riscosForm" action="<c:url value="/jogo/riscos"/>" method="post">
-				<input type="hidden" name="projeto.id" value="${projeto.id}">
-				<div class="modal-content">
-				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Sair</span></button>
-				<h4 class="modal-title" id="titulo">Selecione os riscos do projeto</h4>
-				</div>
-					<div class="modal-body">
+					<input type="hidden" name="projeto.id" value="${projeto.id}">
+					<div style="text-align: center;">
+						<h4>Selecione os riscos do projeto</h4>
+					</div>
 						<c:forEach items="${riscos}" var="risco">
-							<input type="checkbox"  name="selecionados[].risco.id" value="${risco.id}"> ${risco.descricao} 
+							<div>
+								<input type="checkbox"  name="selecionados[].risco.id" value="${risco.id}"> ${risco.descricao}
+							</div> 
 						</c:forEach>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<button type="submit" class="btn btn-primary">Continuar</button>
-					</div>
-				</div>
 			</form>
 		</div>
+		<div style="margin-top: 7px; margin-left: -14px;text-align: center;">
+			<button type="submit" class="btn btn-primary">Continuar</button>
+		</div>
 	</div>
+</div>
+	
 <script type="text/javascript">
     $("#btnRiscos").click(function(){
     	var projetoId = $("#projetoId").val();
@@ -50,4 +45,19 @@
     	}
     });
     
-</script>  
+    (function($){
+        $(window).load(function(){
+            $(".projeto").mCustomScrollbar({
+				mouseWheel: false,
+				theme: "dark",
+				set_height:"85%",
+			});
+			
+			$(".riscos").mCustomScrollbar({
+				axis:"x",
+				theme: "dark",
+				set_height:"91%"
+			});
+        });
+    })(jQuery);
+</script>
