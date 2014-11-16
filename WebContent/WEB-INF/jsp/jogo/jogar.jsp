@@ -26,23 +26,21 @@
 					</div>
 						<c:forEach items="${riscos}" var="risco">
 							<div>
-								<input type="checkbox"  name="selecionados[].risco.id" value="${risco.id}"> ${risco.descricao}
+								<input type="checkbox"  name="riscosSelecionados[].risco.id" value="${risco.id}"> ${risco.descricao}
 							</div> 
 						</c:forEach>
 			</form>
 		</div>
 		<div style="margin-top: 7px; margin-left: -14px;text-align: center;">
-			<button type="submit" class="btn btn-primary">Continuar</button>
+			<button type="button" id="btnContinuarJogo" class="btn btn-primary">Continuar</button>
 		</div>
 	</div>
 </div>
 	
 <script type="text/javascript">
-    $("#btnRiscos").click(function(){
-    	var projetoId = $("#projetoId").val();
-    	if(projetoId > 0 ){
-    		$("#formProjeto").submit();
-    	}
+  
+    $("#btnContinuarJogo").click(function(){
+   		$("#riscosForm").submit();
     });
     
     (function($){

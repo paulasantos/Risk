@@ -2,12 +2,12 @@ package br.jogo.risk.dao;
 
 import java.util.List;
 
-import br.jogo.risk.model.RiscoAnalisado;
+import br.jogo.risk.model.AnaliseDoRisco;
 
 public interface RiscoAnalisadoDao extends GenericDao{
 
-	public RiscoAnalisado find(Long riscoSelecionado, Long projetoId);
+	public AnaliseDoRisco find(Long riscoSelecionado, Long projetoId);
 
-	public List<RiscoAnalisado> list(Long projetoId);
+	public List<AnaliseDoRisco> list(Long projetoId);
 
 }

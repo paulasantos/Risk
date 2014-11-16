@@ -19,7 +19,7 @@
 				<mapping class="br.jogo.risk.model.Pontuacao" />
 				<mapping class="br.jogo.risk.model.Categoria" />
 				<mapping class="br.jogo.risk.model.Risco" />
-				<mapping class="br.jogo.risk.model.RiscoAnalisado" />
+				<mapping class="br.jogo.risk.model.AnaliseDoRisco" />
 				<mapping class="br.jogo.risk.model.AcaoEstrategica" />
 				<mapping class="br.jogo.risk.model.Fase" />
         </session-factory>

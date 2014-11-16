@@ -12,14 +12,17 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="sequence", sequenceName="riscoanalisado_sequence", allocationSize=1)
-public class RiscoAnalisado {
+@SequenceGenerator(name="sequence", sequenceName="analiserisco_sequence", allocationSize=1)
+public class AnaliseDoRisco {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
 	private Long id;
 	
 	@OneToOne
 	private Risco risco;
+	
+	@ManyToOne
+	private Jogador jogador;
 	
 	private Character prioridade;
 	

@@ -22,7 +22,7 @@ public class PlanoDeRiscos {
 	private Projeto projeto;
 	
 	@OneToMany(mappedBy="planoDeRiscos", cascade=CascadeType.ALL)
-	private List<RiscoAnalisado> riscosAnalisados;
+	private List<AnaliseDoRisco> riscosAnalisados;
 	
 	public Long getId() {
 		return id;
@@ -40,11 +40,11 @@ public class PlanoDeRiscos {
 		this.projeto = projeto;
 	}
 
-	public List<RiscoAnalisado> getRiscosAnalisados() {
+	public List<AnaliseDoRisco> getRiscosAnalisados() {
 		return riscosAnalisados;
 	}
 
-	public void setRiscosAnalisados(List<RiscoAnalisado> riscosAnalisados) {
+	public void setRiscosAnalisados(List<AnaliseDoRisco> riscosAnalisados) {
 		this.riscosAnalisados = riscosAnalisados;
 	}
 }
