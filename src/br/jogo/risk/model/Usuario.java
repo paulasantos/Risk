@@ -1,9 +1,12 @@
 package br.jogo.risk.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -22,6 +25,9 @@ public class Usuario {
 	
 	@OneToOne
 	private Perfil perfil;
+	
+	@OneToMany(mappedBy="professor")
+	private List<Projeto> projetos;
 	
 	public Long getId() {
 		return id;
@@ -52,5 +58,11 @@ public class Usuario {
 	}
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
+	}
+	public List<Projeto> getProjetos() {
+		return projetos;
+	}
+	public void setProjetos(List<Projeto> projetos) {
+		this.projetos = projetos;
 	}
 }

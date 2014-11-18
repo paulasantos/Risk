@@ -1,12 +1,16 @@
 package br.jogo.risk.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.model.PlanoDeRiscos;
+import br.jogo.risk.util.enums.Perfil;
 import br.jogo.risk.util.enums.StatusJogo;
+import br.jogo.risk.util.enums.TipoDeProjeto;
 
 @Component
 @RequestScoped
@@ -21,5 +25,25 @@ public class PlanoDeRiscoDaoImpl extends GenericDaoImpl implements PlanoDeRiscoD
 		.add(Restrictions.eq("j.id", jogoId))
 		.add(Restrictions.eq("j.status", StatusJogo.INICIADO.getStatus()))
 		.uniqueResult();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PlanoDeRiscos> findPlanosCompartilhados() {
+		return getSession().createCriteria(PlanoDeRiscos.class, "pr")
+				.createCriteria("pr.projeto", "p")
+				.createCriteria("pr.usuario", "u")
+				.createCriteria("u.perfil", "perf")
+				.add(Restrictions.eq("p.tipo", TipoDeProjeto.COMPARTILHADO.getTipo()))
+				.add(Restrictions.eq("perf.descricao.", Perfil.PROFESSOR.getPerfil()))
+				.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<PlanoDeRiscos> findMyPlanos(Long professorId) {
+		return getSession().createCriteria(PlanoDeRiscos.class, "pr")
+				.add(Restrictions.eq("p.usuario.id", professorId))
+				.list();
 	}
 }

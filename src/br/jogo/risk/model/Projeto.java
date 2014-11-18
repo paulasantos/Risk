@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -31,14 +32,17 @@ public class Projeto {
 	@OneToMany(mappedBy="projeto")
 	private List<Jogo> jogos;
 	
-	private String fase;
-	
 	private Double orcamento;
 	
 	private Double cronograma;
 	
 	private Integer qtdMembros;
 
+	private Character tipo;
+	
+	@ManyToOne 
+	private Usuario professor;
+	
 	public Long getId() {
 		return id;
 	}
@@ -87,14 +91,6 @@ public class Projeto {
 		this.jogos = jogos;
 	}
 
-	public String getFase() {
-		return fase;
-	}
-
-	public void setFase(String fase) {
-		this.fase = fase;
-	}
-
 	public Double getOrcamento() {
 		return orcamento;
 	}
@@ -117,5 +113,13 @@ public class Projeto {
 
 	public void setQtdMembros(Integer qtdMembros) {
 		this.qtdMembros = qtdMembros;
+	}
+
+	public Character getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Character tipo) {
+		this.tipo = tipo;
 	}
 }

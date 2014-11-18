@@ -26,6 +26,8 @@ public class Jogo {
 	
 	private Character status;
 	
+	private String fase;
+	
 	@OneToMany(mappedBy="jogo")
 	private List<Pontuacao> pontuacoes;
 
@@ -59,6 +61,14 @@ public class Jogo {
 
 	public void setStatus(Character status) {
 		this.status = status;
+	}
+
+	public String getFase() {
+		return fase;
+	}
+
+	public void setFase(String fase) {
+		this.fase = fase;
 	}
 
 	public List<Pontuacao> getPontuacoes() {
