@@ -7,15 +7,15 @@ import org.springframework.stereotype.Component;
 
 import br.com.caelum.vraptor.ioc.RequestScoped;
 import br.jogo.risk.dao.RiscoAnalisadoDao;
-import br.jogo.risk.model.AnaliseDoRisco;
+import br.jogo.risk.model.AnaliseDeRisco;
 
 @Component
 @RequestScoped
 public class RiscoAnalisadoDaoImpl extends GenericDaoImpl implements RiscoAnalisadoDao {
 
 	@Override
-	public AnaliseDoRisco find(Long riscoSelecionado, Long projetoId) {
-		return (AnaliseDoRisco) getSession().createCriteria(AnaliseDoRisco.class, "ra")
+	public AnaliseDeRisco find(Long riscoSelecionado, Long projetoId) {
+		return (AnaliseDeRisco) getSession().createCriteria(AnaliseDeRisco.class, "ra")
 				.createCriteria("ra.planoDeProjeto", "pp")
 				.add(Restrictions.eq("ra.id", riscoSelecionado))
 				.add(Restrictions.eq("pp.projeto.id", projetoId))
@@ -24,8 +24,8 @@ public class RiscoAnalisadoDaoImpl extends GenericDaoImpl implements RiscoAnalis
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<AnaliseDoRisco> list(Long projetoId) {
-		return  getSession().createCriteria(AnaliseDoRisco.class, "ra")
+	public List<AnaliseDeRisco> list(Long projetoId) {
+		return  getSession().createCriteria(AnaliseDeRisco.class, "ra")
 				.createCriteria("ra.planoDeRiscos", "pp")
 				.add(Restrictions.eq("pp.projeto.id", projetoId))
 				.list();

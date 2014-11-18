@@ -12,15 +12,17 @@
                 <property name="hibernate.format_sql">true</property>
                 <property name="org.hibernate.envers.store_data_at_delete">true</property>
                 
-				<mapping class="br.jogo.risk.model.Jogador" />
+				<mapping class="br.jogo.risk.model.Usuario" />
 				<mapping class="br.jogo.risk.model.Jogo" />
 				<mapping class="br.jogo.risk.model.Projeto" />
 				<mapping class="br.jogo.risk.model.PlanoDeRiscos" />
 				<mapping class="br.jogo.risk.model.Pontuacao" />
 				<mapping class="br.jogo.risk.model.Categoria" />
 				<mapping class="br.jogo.risk.model.Risco" />
-				<mapping class="br.jogo.risk.model.AnaliseDoRisco" />
+				<mapping class="br.jogo.risk.model.AnaliseDeRisco" />
 				<mapping class="br.jogo.risk.model.AcaoEstrategica" />
+				<mapping class="br.jogo.risk.model.AnaliseAcaoEstrategica" />
+				<mapping class="br.jogo.risk.model.Perfil" />
 				<mapping class="br.jogo.risk.model.Fase" />
         </session-factory>
 </hibernate-configuration>  

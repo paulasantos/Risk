@@ -1,10 +1,12 @@
 package br.jogo.risk.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -16,19 +18,9 @@ public class AcaoEstrategica {
 	
 	private String descricao;
 	
-	@ManyToOne
-	private Risco risco;
-
-	@ManyToOne
-	private AnaliseDoRisco riscoAnalisado;
-	
-	@ManyToOne
-	private Fase faseDeRealizacao;
-	
-	private String responsáveis;
-	
-	private Double custo;
-	
+	@OneToMany(mappedBy="estrategia")
+	private List<AnaliseAcaoEstrategica> analiseAcoes;
+		
 	public Long getId() {
 		return id;
 	}
@@ -45,43 +37,11 @@ public class AcaoEstrategica {
 		this.descricao = descricao;
 	}
 
-	public Risco getRisco() {
-		return risco;
+	public List<AnaliseAcaoEstrategica> getAnaliseAcoes() {
+		return analiseAcoes;
 	}
 
-	public void setRisco(Risco risco) {
-		this.risco = risco;
-	}
-
-	public AnaliseDoRisco getRiscoAnalisado() {
-		return riscoAnalisado;
-	}
-
-	public void setRiscoAnalisado(AnaliseDoRisco riscoAnalisado) {
-		this.riscoAnalisado = riscoAnalisado;
-	}
-
-	public Fase getFaseDeRealizacao() {
-		return faseDeRealizacao;
-	}
-
-	public void setFaseDeRealizacao(Fase faseDeRealizacao) {
-		this.faseDeRealizacao = faseDeRealizacao;
-	}
-
-	public String getResponsáveis() {
-		return responsáveis;
-	}
-
-	public void setResponsáveis(String responsáveis) {
-		this.responsáveis = responsáveis;
-	}
-
-	public Double getCusto() {
-		return custo;
-	}
-
-	public void setCusto(Double custo) {
-		this.custo = custo;
+	public void setAnaliseAcoes(List<AnaliseAcaoEstrategica> analiseAcoes) {
+		this.analiseAcoes = analiseAcoes;
 	}
 }

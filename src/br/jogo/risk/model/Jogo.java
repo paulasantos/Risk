@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -18,9 +19,9 @@ public class Jogo {
 	private Long id;
 	
 	@OneToOne
-	private Jogador jogador;
+	private Usuario jogador;
 
-	@OneToOne
+	@ManyToOne
 	private Projeto projeto;
 	
 	private Character status;
@@ -36,11 +37,11 @@ public class Jogo {
 		this.id = id;
 	}
 
-	public Jogador getJogador() {
+	public Usuario getJogador() {
 		return jogador;
 	}
 
-	public void setJogador(Jogador jogador) {
+	public void setJogador(Usuario jogador) {
 		this.jogador = jogador;
 	}
 

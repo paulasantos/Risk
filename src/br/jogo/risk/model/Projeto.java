@@ -1,10 +1,13 @@
 package br.jogo.risk.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity 
@@ -21,6 +24,12 @@ public class Projeto {
 	
 	@Column(columnDefinition="TEXT")
 	private String descricao;
+	
+	@OneToMany(mappedBy="projeto")
+	private List<PlanoDeRiscos> planoDeRiscos;
+	
+	@OneToMany(mappedBy="projeto")
+	private List<Jogo> jogos;
 	
 	private String fase;
 	
@@ -62,6 +71,22 @@ public class Projeto {
 		this.descricao = descricao;
 	}
 		
+	public List<PlanoDeRiscos> getPlanoDeRiscos() {
+		return planoDeRiscos;
+	}
+
+	public void setPlanoDeRiscos(List<PlanoDeRiscos> planoDeRiscos) {
+		this.planoDeRiscos = planoDeRiscos;
+	}
+
+	public List<Jogo> getJogos() {
+		return jogos;
+	}
+
+	public void setJogos(List<Jogo> jogos) {
+		this.jogos = jogos;
+	}
+
 	public String getFase() {
 		return fase;
 	}

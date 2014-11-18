@@ -19,7 +19,7 @@ public class Fase {
 	public String nome;
 
 	@OneToMany(mappedBy="faseDeRealizacao")
-	public List<AcaoEstrategica> acoesEstrategicas;
+	public List<AnaliseAcaoEstrategica> analiseAcaoEstrategicas;
 	
 	public Long getId() {
 		return id;
@@ -37,11 +37,12 @@ public class Fase {
 		this.nome = nome;
 	}
 
-	public List<AcaoEstrategica> getAcoesEstrategicas() {
-		return acoesEstrategicas;
+	public List<AnaliseAcaoEstrategica> getAnaliseAcaoEstrategicas() {
+		return analiseAcaoEstrategicas;
 	}
 
-	public void setAcoesEstrategicas(List<AcaoEstrategica> acoesEstrategicas) {
-		this.acoesEstrategicas = acoesEstrategicas;
+	public void setAnaliseAcaoEstrategicas(
+			List<AnaliseAcaoEstrategica> analiseAcaoEstrategicas) {
+		this.analiseAcaoEstrategicas = analiseAcaoEstrategicas;
 	}
 }

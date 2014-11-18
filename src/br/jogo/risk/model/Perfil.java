@@ -7,18 +7,14 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="sequence", sequenceName="jogador_sequence", allocationSize=1)
-public class Jogador {
+@SequenceGenerator(name="sequence", sequenceName="perfil_sequence", allocationSize=1)
+public class Perfil {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
 	private Long id;
 	
 	private String nome;
 	
-	private String login;
-	
-	private String senha;
-		
 	public Long getId() {
 		return id;
 	}
@@ -30,17 +26,5 @@ public class Jogador {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 }

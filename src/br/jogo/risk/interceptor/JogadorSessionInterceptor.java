@@ -6,15 +6,15 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.core.InterceptorStack;
 import br.com.caelum.vraptor.interceptor.Interceptor;
 import br.com.caelum.vraptor.resource.ResourceMethod;
-import br.jogo.risk.dao.JogadorSession;
+import br.jogo.risk.dao.UsuarioSession;
 
 @Intercepts
 public class JogadorSessionInterceptor implements Interceptor{
 
 	private Result result;
-	private JogadorSession jogadorSession;
+	private UsuarioSession jogadorSession;
 
-	public JogadorSessionInterceptor(Result result, JogadorSession jogadorSession) {
+	public JogadorSessionInterceptor(Result result, UsuarioSession jogadorSession) {
 		this.result = result;
 		this.jogadorSession = jogadorSession;
 	}

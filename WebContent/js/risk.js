@@ -2,9 +2,9 @@ function verificarDisponibilidade(login, functionSuccess){
 		$.get("/risk/verificarDisponibilidade/"+ login)
 		.success(functionSuccess)
 		.error(function() {
-			$('#jogadorLogin').parent().find('.alert-message').hide();
-			$('#jogadorLogin').parent().find('.error').show();
-			$('#jogadorLogin').parent().addClass("has-error");
+			$('#usuarioLogin').parent().find('.alert-message').hide();
+			$('#usuarioLogin').parent().find('.error').show();
+			$('#usuarioLogin').parent().addClass("has-error");
 		})
 	}
 
@@ -28,23 +28,23 @@ function validaFormulario($form){
 }
 
 function validaLogin(){
-	var login = $("#jogadorLogin").val();
+	var login = $("#usuarioLogin").val();
 	if(login == ""){
-		$('#jogadorLogin').parent().find('.alert-message').hide();
-		$('#jogadorLogin').parent().find('.info').show();
-		$('#jogadorLogin').parent().addClass("has-error");
+		$('#usuarioLogin').parent().find('.alert-message').hide();
+		$('#usuarioLogin').parent().find('.info').show();
+		$('#usuarioLogin').parent().addClass("has-error");
 	}
 	else{
 		verificarDisponibilidade(login, function( isLoginValido ) {		
 			if(isLoginValido.boolean == true){
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.success').show();
-				$('#jogadorLogin').parent().removeClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.success').show();
+				$('#usuarioLogin').parent().removeClass("has-error");
 			}
 			else{
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.error').show();
-				$('#jogadorLogin').parent().addClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.error').show();
+				$('#usuarioLogin').parent().addClass("has-error");
 			}	
 		});
 	}
@@ -52,28 +52,28 @@ function validaLogin(){
 
 
 function gravar(){
-	var $form = $("#jogadorForm")
+	var $form = $("#usuarioForm")
 
-	var login = $("#jogadorLogin").val();
+	var login = $("#usuarioLogin").val();
 	if(login == ""){
-		$('#jogadorLogin').parent().find('.alert-message').hide();
-		$('#jogadorLogin').parent().find('.info').show();
-		$('#jogadorLogin').parent().addClass("has-error");
+		$('#usuarioLogin').parent().find('.alert-message').hide();
+		$('#usuarioLogin').parent().find('.info').show();
+		$('#usuarioLogin').parent().addClass("has-error");
 	}
 	else{
 		verificarDisponibilidade(login, function( isLoginValido ) {		
 			if(isLoginValido.boolean == true){
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.success').show();
-				$('#jogadorLogin').parent().removeClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.success').show();
+				$('#usuarioLogin').parent().removeClass("has-error");
 				
 				if( validaFormulario($form))
 					$form.submit();
 			}
 			else{
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.error').show();
-				$('#jogadorLogin').parent().addClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.error').show();
+				$('#usuarioLogin').parent().addClass("has-error");
 			}	
 		});
 	}
@@ -81,23 +81,23 @@ function gravar(){
 
 
 function buscarLoginRedefinirSenha(){
-	var login = $("#jogadorLogin").val();
+	var login = $("#usuarioLogin").val();
 	if(login == ""){
-		$('#jogadorLogin').parent().find('.alert-message').hide();
-		$('#jogadorLogin').parent().find('.info').show();
-		$('#jogadorLogin').parent().addClass("has-error");
+		$('#usuarioLogin').parent().find('.alert-message').hide();
+		$('#usuarioLogin').parent().find('.info').show();
+		$('#usuarioLogin').parent().addClass("has-error");
 	}
 	else{
 		verificarDisponibilidade(login, function( isLogin ) {		
 			if(isLogin.boolean == true){
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.error').show();
-				$('#jogadorLogin').parent().removeClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.error').show();
+				$('#usuarioLogin').parent().removeClass("has-error");
 			}
 			else{
-				$('#jogadorLogin').parent().find('.alert-message').hide();
-				$('#jogadorLogin').parent().find('.success').show();
-				$('#jogadorLogin').parent().removeClass("has-error");
+				$('#usuarioLogin').parent().find('.alert-message').hide();
+				$('#usuarioLogin').parent().find('.success').show();
+				$('#usuarioLogin').parent().removeClass("has-error");
 			}	
 		});
 	}

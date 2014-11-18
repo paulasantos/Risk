@@ -6,12 +6,12 @@ import javax.servlet.http.HttpSession;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
-import br.jogo.risk.dao.JogadorSession;
-import br.jogo.risk.model.Jogador;
+import br.jogo.risk.dao.UsuarioSession;
+import br.jogo.risk.model.Usuario;
 
 @Component @SessionScoped
 @SuppressWarnings("serial")
-public class JogadorSessionImpl implements JogadorSession, Serializable {
+public class JogadorSessionImpl implements UsuarioSession, Serializable {
 
 	private HttpSession session;
 	
@@ -20,12 +20,12 @@ public class JogadorSessionImpl implements JogadorSession, Serializable {
 	}
 	
 	@Override
-	public Jogador getJogador() {
-		return (Jogador) session.getAttribute("jogadorSession");
+	public Usuario getJogador() {
+		return (Usuario) session.getAttribute("jogadorSession");
 	}
 
 	@Override
-	public void setJogador(Jogador jogador) {
+	public void setUsuario(Usuario jogador) {
 		this.session.setAttribute("jogadorSession", jogador);
 	}
 

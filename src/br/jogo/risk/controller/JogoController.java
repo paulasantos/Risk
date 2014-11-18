@@ -1,6 +1,5 @@
 package br.jogo.risk.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.caelum.vraptor.Get;
@@ -8,18 +7,19 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.jogo.risk.dao.JogadorSession;
 import br.jogo.risk.dao.JogoDao;
+import br.jogo.risk.dao.PerfilDao;
 import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.dao.ProjetoDao;
 import br.jogo.risk.dao.RiscoAnalisadoDao;
 import br.jogo.risk.dao.RiscoDao;
+import br.jogo.risk.dao.UsuarioSession;
+import br.jogo.risk.model.AnaliseDeRisco;
 import br.jogo.risk.model.Jogo;
 import br.jogo.risk.model.PlanoDeRiscos;
 import br.jogo.risk.model.Projeto;
 import br.jogo.risk.model.Risco;
-import br.jogo.risk.model.AnaliseDoRisco;
-import br.jogo.risk.util.enums.JogoStatus;
+import br.jogo.risk.util.enums.StatusJogo;
 
 @Resource
 @Path("/jogo")
@@ -30,11 +30,12 @@ public class JogoController {
 	private RiscoDao riscoDao;
 	private PlanoDeRiscoDao planoDeRiscoDao;
 	private RiscoAnalisadoDao riscoAnalisadoDao;
-	private JogadorSession jogadorSession;
+	private UsuarioSession jogadorSession;
 	private JogoDao jogoDao;
+	private PerfilDao perfilDao;
 
 	public JogoController(Result result, ProjetoDao projetoDao, RiscoDao riscoDao, PlanoDeRiscoDao planoDeRiscoDao, 
-			RiscoAnalisadoDao riscoAnalisadoDao, JogadorSession jogadorSession, JogoDao jogoDao) {
+			RiscoAnalisadoDao riscoAnalisadoDao, UsuarioSession jogadorSession, JogoDao jogoDao, PerfilDao perfilDao) {
 		this.result = result;
 		this.projetoDao = projetoDao;
 		this.riscoDao = riscoDao;
@@ -42,6 +43,7 @@ public class JogoController {
 		this.riscoAnalisadoDao = riscoAnalisadoDao;
 		this.jogadorSession = jogadorSession;
 		this.jogoDao = jogoDao;
+		this.perfilDao = perfilDao;
 	}
 	
 	@Get("")
@@ -50,112 +52,38 @@ public class JogoController {
 	}
 	
 	@Post
-	public void jogar(Projeto projeto) {
-		Jogo jogo = new Jogo();
-		jogo.setJogador(jogadorSession.getJogador());
-		jogo.setProjeto(projeto);
-		jogo.setStatus(JogoStatus.INICIADO.getStatus());
-		jogoDao.save(jogo);
+	public void iniciarJogo(Projeto projeto) {
+		Jogo jogo = jogoDao.findJogoIniciado(projeto.getId(), jogadorSession.getJogador().getId());		
 		
-		List<Risco> riscos = riscoDao.find();
-		Risco risco = new Risco();
-		risco.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco.setId(2L);
+		if(jogo == null){
+			jogo = new Jogo();
+			jogo.setProjeto(projeto);
+			jogo.setJogador(jogadorSession.getJogador());
+			jogo.setStatus(StatusJogo.INICIADO.getStatus());
+			jogoDao.save(jogo);
+			
+			PlanoDeRiscos planoDeRiscos = new PlanoDeRiscos();
+			planoDeRiscos.setProjeto(projeto);
+			planoDeRiscos.setUsuario(jogadorSession.getJogador());
+			planoDeRiscoDao.save(planoDeRiscos);
+		}
 		
-		Risco risco3 = new Risco();
-		risco3.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco3.setId(3L);
+		result.redirectTo(this).jogar(projeto, jogo);
+	}
+	
+	@Get("/jogar")
+	public void jogar(Projeto projeto, Jogo jogo) {
+		List<Risco> riscos = riscoDao.find();		
+		PlanoDeRiscos planoDeRiscos = planoDeRiscoDao.findByProjetoAndJogo(projeto.getId(), jogo.getId());
 		
-		Risco risco4 = new Risco();
-		risco4.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco4.setId(4L);
-		
-		Risco risco5 = new Risco();
-		risco5.setDescricao("saad  asdsfsf  sdfadsfdsfdsf   dsfdsfdsfsafdsfsaad"
-				+ "asdsfsfsdf  adsfdsfdsfd  sfdsfdsfsafdsf  saadasdsfsfsdfadsfds    fdsfds  fdsfdsfs  afdsf");
-		risco5.setId(5L);
-		
-		Risco risco6 = new Risco();
-		risco6.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco6.setId(6L);
-		
-		Risco risco7 = new Risco();
-		risco7.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco7.setId(7L);
-		
-		Risco risco8 = new Risco();
-		risco8.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco8.setId(8L);
-		
-		Risco risco9 = new Risco();
-		risco9.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco9.setId(2L);
-		
-		Risco risco10 = new Risco();
-		risco10.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco10.setId(10L);
-		
-		Risco risco11 = new Risco();
-		risco11.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco11.setId(11L);
-		
-		Risco risco12 = new Risco();
-		risco12.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco12.setId(22L);
-		
-		Risco risco13 = new Risco();
-		risco13.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco13.setId(13L);
-		
-		Risco risco14 = new Risco();
-		risco14.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco14.setId(14L);
-		
-		Risco risco15 = new Risco();
-		risco15.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco15.setId(15L);
-		
-		Risco risco16 = new Risco();
-		risco16.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco16.setId(16L);
-		
-		Risco risco17 = new Risco();
-		risco17.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco17.setId(17L);
-		
-		Risco risco18 = new Risco();
-		risco18.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco18.setId(18L);
-		
-		Risco risco19 = new Risco();
-		risco19.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco19.setId(19L);
-		
-		Risco risco20 = new Risco();
-		risco20.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco20.setId(20L);
-		
-		Risco risco21 = new Risco();
-		risco21.setDescricao("saadasdsfsfsdfadsfdsfdsfdsfdsfdsfsafdsf");
-		risco21.setId(21L);
-		
-		riscos.add(risco3); riscos.add(risco4); riscos.add(risco5); riscos.add(risco6); riscos.add(risco7); riscos.add(risco8);
-		riscos.add(risco9);riscos.add(risco10);riscos.add(risco11);riscos.add(risco12);riscos.add(risco13);riscos.add(risco14);
-		riscos.add(risco15);riscos.add(risco16);riscos.add(risco17);riscos.add(risco18);riscos.add(risco19);riscos.add(risco20);riscos.add(risco21); 
-		
-		
-		PlanoDeRiscos planoDeRiscos = new PlanoDeRiscos();
-		result.include("projeto",  projetoDao.find(projeto.getId())).include("riscos", riscos).include("planoDeRiscos",planoDeRiscos);
+		result.include("projeto", projetoDao.find(jogo.getProjeto().getId())).
+		include("riscos", riscos).
+		include("planoDeRiscos",planoDeRiscos);
 	}
 	
 	@Post("/riscos")
-	public void saveRiscosASerAnalisados(ArrayList<AnaliseDoRisco> riscosSelecionados, Projeto projeto){
-		System.out.println(riscosSelecionados.get(0).getRisco().getId());
-		PlanoDeRiscos planoDeRiscos = new PlanoDeRiscos();
-		planoDeRiscos.setRiscosAnalisados(riscosSelecionados);
-		planoDeRiscos.setRiscosAnalisados(riscosSelecionados);
-		planoDeRiscos.setProjeto(projeto);
-		planoDeRiscoDao.save(planoDeRiscos);
+	public void saveRiscosASerAnalisados(PlanoDeRiscos planoDeRiscos, Projeto projeto){		
+		planoDeRiscoDao.update(planoDeRiscos);
 		result.include(planoDeRiscos).redirectTo(this).analise(projeto.getId());;
 	}
 		
@@ -169,7 +97,14 @@ public class JogoController {
 	
 	@Get("/riscos/analise")
 	public void analise(Long projetoId){
-		result.include("riscosSelecionados", riscoAnalisadoDao.list(projetoId));
+		List<AnaliseDeRisco> riscosSelecionados = riscoAnalisadoDao.list(projetoId);
+		
+		result.include("riscosSelecionados", riscosSelecionados);
+	}
+
+	@Get("/inicioCadastros")
+	public void inicioCadastros() {
+		
 	}
 	
 }

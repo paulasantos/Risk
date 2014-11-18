@@ -5,29 +5,41 @@
 <div class="account-wrapper">
 	<div class="account-body">
 		
-		<form id="jogadorForm" class="account-form form-horizontal" action="<c:url value="/atualizarSenha"/>" method="POST">
+		<form id="usuarioForm" class="account-form form-horizontal" action="<c:url value="/cadastrarJogador"/>" method="POST">
 			<p>Efetuar Cadastro</p>
 
 			<div class="form-group">
-			    <label for="jogadorName" class="col-sm-2 control-label">Nome</label>
+			    <label for="usuarioName" class="col-sm-2 control-label">Nome</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control required" id="jogadorName" placeholder="Nome" name="jogador.nome" value="" >
+			      <input type="text" class="form-control required" id="usuarioName" placeholder="Nome" name="usuario.nome" value="" >
 			    </div>
 		  	</div>
   					
 			<div class="form-group">
-			    <label for="jogadorLogin" class="col-sm-2 control-label">Login</label>
+			    <label for="usuarioLogin" class="col-sm-2 control-label">Login</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control required" id="jogadorLogin" placeholder="Login" name="jogador.login" onblur="validaLogin()" >
+			      <input type="text" class="form-control required" id="usuarioLogin" placeholder="Login" name="usuario.login" onblur="validaLogin()" >
 			    </div>
 		  	</div>
   					
 			<div class="form-group">
-			    <label for="jogadorSenha" class="col-sm-2 control-label">Senha</label>
+			    <label for="usuarioSenha" class="col-sm-2 control-label">Senha</label>
 			    <div class="col-sm-10">
-			      <input type="password" class="form-control required" id="jogadorSenha" placeholder="Senha" name="jogador.senha" value="" >
+			      <input type="password" class="form-control required" id="usuarioSenha" placeholder="Senha" name="usuario.senha" value="" >
 			    </div>
 		  	</div>
+		  	
+		  	<div class="form-group">
+			    <label for="usuarioPerfil" class="col-sm-2 control-label">Perfil</label>
+			    <div class="col-sm-10">
+				  	<select id="usuarioPerfil" name="usuario.perfil.id" class="required form-control">
+							<option value="0">Escolha um Perfil...</option>
+							<c:forEach items= "${perfis}" var="perfil">
+								<option value="${perfil.id}"> ${perfil.nome} </option>
+							</c:forEach>
+					</select>
+				</div>
+			</div>
 		  	<div class="form-group clearfix ">
 				<div class="pull-left">
 					<a class="link" href="<c:url value='/redefinirSenha'/>" style="padding: 80px;">Esqueci minha senha</a>
@@ -47,7 +59,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#jogadorLogin").after("<span class='alert-message alert success'><i class='fa fa-check-circle'></i>Login disponível.</span>")
+		$("#usuarioLogin").after("<span class='alert-message alert success'><i class='fa fa-check-circle'></i>Login disponível.</span>")
 			.after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login indisponível.</span>")
 			.after("<span class='alert-message info'><i class='fa fa-info-circle'></i>Digite um Login para ser pesquisado.</span>");
 					

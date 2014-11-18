@@ -1,0 +1,28 @@
+.riscos-selecionados{
+	width: 220px;
+	height: auto !important;
+	min-height: 100%;
+	border-color: black;
+	border: 1px solid #ddd;
+}
+
+.analise{
+	background-color: whitesmoke;
+	border-color: black; 
+	border: 1px solid #ddd; 
+	height: auto !important;
+	min-height: 100%;
+	
+	.form-analise{
+		display: table; 
+		margin-left: 0 !important; 
+		padding-left: 0 !important;
+		
+		div{
+			margin-left: -30px !important;
+			label{
+				font-weight: normal;
+			}
+		}	
+	}
+}

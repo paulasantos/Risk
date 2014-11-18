@@ -14,17 +14,17 @@ import br.com.caelum.vraptor.interceptor.Interceptor;
 import br.com.caelum.vraptor.resource.ResourceMethod;
 import br.jogo.risk.controller.IndexController;
 import br.jogo.risk.controller.LoginController;
-import br.jogo.risk.dao.JogadorDao;
-import br.jogo.risk.dao.JogadorSession;
+import br.jogo.risk.dao.UsuarioDao;
+import br.jogo.risk.dao.UsuarioSession;
 
 @Intercepts
 public class LoginInterceptor implements Interceptor{
 
 	private Result result;
-	private JogadorSession jogadorSession;
-	private JogadorDao jogadorDao;
+	private UsuarioSession jogadorSession;
+	private UsuarioDao jogadorDao;
 
-	public LoginInterceptor(Result result, HttpServletRequest request, JogadorSession jogadorSession, JogadorDao jogadorDao) {
+	public LoginInterceptor(Result result, HttpServletRequest request, UsuarioSession jogadorSession, UsuarioDao jogadorDao) {
 		this.result = result;
 		this.jogadorSession = jogadorSession;
 		this.jogadorDao = jogadorDao;
@@ -43,13 +43,19 @@ public class LoginInterceptor implements Interceptor{
 		
 		if (isJogadorLogado){
 			if(! jogadorDao.jogadorExist(jogadorSession.getJogador().getId())){
-				jogadorSession.setJogador(null);
+				jogadorSession.setUsuario(null);
 				result.use(http()).sendError(401, "Erro sessão!");
 			}
 		}else if(!isQuerAcessarLogin && !isQuerAcessarIndex && !isJogadorLogado){
 			result.redirectTo(LoginController.class).login();
+		}
+		
+		if(!isJogadorLogado && (isQuerAcessarLogin || isQuerAcessarIndex)){
+			stack.next(method, object);
+		}else if(isJogadorLogado){
 			stack.next(method, object);
 		}
-		stack.next(method, object);
+		
+		
 	}
 }

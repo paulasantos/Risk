@@ -11,13 +11,13 @@
 		<form id="redefinirSenhaForm" class="form account-form" action="<c:url value="/atualizarSenha"/>"  method="post">
 		
         	<div class="form-group">
-        		<input type="text" class="form-control required" id="jogadorLogin" placeholder="Login" name="jogador.login" onblur="buscarLoginRedefinirSenha()"/>
+        		<input type="text" class="form-control required" id="usuarioLogin" placeholder="Login" name="usuario.login" onblur="buscarLoginRedefinirSenha()"/>
         	
         	</div>
         
         	<div class="form-group">
-        		 <input type="password" class="form-control required" id="jogadorSenha" placeholder="Senha" name="jogador.senha" value="" >
-        	</div>
+        		 <input type="password" class="form-control required" id="usuarioSenha" placeholder="Senha" name="usuario.senha" value="" >
+        	</div>      		
 			
 			<div class="form-group clearfix">
 				<div class="pull-right">
@@ -36,7 +36,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#jogadorLogin").after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login não encontrato, verifique seu login ou efetue seu cadastro.</span>")
+		$("#usuarioLogin").after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login não encontrato, verifique seu login ou efetue seu cadastro.</span>")
 			.after("<span class='alert-message info'><i class='fa fa-info-circle'></i>Digite um Login para ser pesquisado.</span>")
 			.after("<span class='alert-message success'><i class='fa fa-check-circle'></i>Login encontrado.</span>");
 					

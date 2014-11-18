@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import org.hibernate.envers.DefaultRevisionEntity;
 import org.hibernate.envers.RevisionEntity;
 
-import br.jogo.risk.model.Jogador;
+import br.jogo.risk.model.Usuario;
 
 
 //@Entity
@@ -19,13 +19,13 @@ public class CustomRevisionEntity extends DefaultRevisionEntity {
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne(fetch=FetchType.LAZY)
-	private Jogador jogador;
+	private Usuario jogador;
 
-	public Jogador getJogador() {
+	public Usuario getJogador() {
 		return jogador;
 	}
 
-	public void setJogador(Jogador jogador) {
+	public void setJogador(Usuario jogador) {
 		this.jogador = jogador;
 	}
  

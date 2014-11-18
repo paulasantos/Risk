@@ -7,13 +7,13 @@ import org.hibernate.envers.RevisionListener;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import br.jogo.risk.model.Jogador;
+import br.jogo.risk.model.Usuario;
 
 public class RevisionListenerImpl  implements RevisionListener {
 	
 	public void newRevision(Object revisionEntity) {
 			
-		Jogador jogador = (Jogador) getSession().getAttribute("jogadorSession");
+		Usuario jogador = (Usuario) getSession().getAttribute("jogadorSession");
 		
         CustomRevisionEntity exampleRevEntity = (CustomRevisionEntity) revisionEntity;
         exampleRevEntity.setJogador(jogador);

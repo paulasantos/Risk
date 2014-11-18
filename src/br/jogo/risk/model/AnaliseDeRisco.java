@@ -12,18 +12,15 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="sequence", sequenceName="analiserisco_sequence", allocationSize=1)
-public class AnaliseDoRisco {
+@SequenceGenerator(name="sequence", sequenceName="analisederisco_sequence", allocationSize=1)
+public class AnaliseDeRisco {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
 	private Long id;
 	
 	@OneToOne
 	private Risco risco;
-	
-	@ManyToOne
-	private Jogador jogador;
-	
+		
 	private Character prioridade;
 	
 	private Character impacto;
@@ -35,8 +32,8 @@ public class AnaliseDoRisco {
 	@ManyToOne
 	private PlanoDeRiscos planoDeRiscos;
 	
-	@OneToMany(mappedBy="riscoAnalisado")
-	private List<AcaoEstrategica> acoesEstrategicas;
+	@OneToMany(mappedBy="analise")
+	private List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas;
 
 	public Long getId() {
 		return id;
@@ -94,11 +91,12 @@ public class AnaliseDoRisco {
 		this.planoDeRiscos = planoDeRiscos;
 	}
 
-	public List<AcaoEstrategica> getAcoesEstrategicas() {
-		return acoesEstrategicas;
+	public List<AnaliseAcaoEstrategica> getAnaliseAcoesEstrategicas() {
+		return analiseAcoesEstrategicas;
 	}
 
-	public void setAcoesEstrategicas(List<AcaoEstrategica> acoesEstrategicas) {
-		this.acoesEstrategicas = acoesEstrategicas;
+	public void setAnaliseAcoesEstrategicas(
+			List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas) {
+		this.analiseAcoesEstrategicas = analiseAcoesEstrategicas;
 	}
 }

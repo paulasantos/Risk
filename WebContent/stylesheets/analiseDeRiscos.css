@@ -1,0 +1,31 @@
+/* line 1, ../sass/analiseDeRiscos.scss */
+.riscos-selecionados {
+  width: 220px;
+  height: auto !important;
+  min-height: 100%;
+  border-color: black;
+  border: 1px solid #ddd;
+}
+
+/* line 9, ../sass/analiseDeRiscos.scss */
+.analise {
+  background-color: whitesmoke;
+  border-color: black;
+  border: 1px solid #ddd;
+  height: auto !important;
+  min-height: 100%;
+}
+/* line 16, ../sass/analiseDeRiscos.scss */
+.analise .form-analise {
+  display: table;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+/* line 21, ../sass/analiseDeRiscos.scss */
+.analise .form-analise div {
+  margin-left: -30px !important;
+}
+/* line 23, ../sass/analiseDeRiscos.scss */
+.analise .form-analise div label {
+  font-weight: normal;
+}

@@ -21,12 +21,13 @@
 		<div class="riscos">
 			<form id="riscosForm" action="<c:url value="/jogo/riscos"/>" method="post">
 					<input type="hidden" name="projeto.id" value="${projeto.id}">
+					<input type="hidden" name="planoDeRiscos.id" value="${planoDeRiscos.id}">
 					<div style="text-align: center;">
 						<h4>Selecione os riscos do projeto</h4>
 					</div>
 						<c:forEach items="${riscos}" var="risco">
-							<div>
-								<input type="checkbox"  name="riscosSelecionados[].risco.id" value="${risco.id}"> ${risco.descricao}
+							<div style="padding: 1px;">
+								<input type="checkbox"  name="planoDeRiscos.analisesDeRiscos[].risco.id" value="${risco.id}"> ${risco.descricao}
 							</div> 
 						</c:forEach>
 			</form>

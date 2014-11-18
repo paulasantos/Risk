@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <link rel="stylesheet" type="text/css" href="/risk/stylesheets/jogo.css">
+<link rel="stylesheet" type="text/css" href="/risk/stylesheets/analiseDeRiscos.css">
 
 <jsp:include page="../index/header.jsp" />
 
@@ -10,7 +11,7 @@
 
 
 <div class="content">
-	<div class="vertical-menu nav-collapse navbar-left navbar" id="riscosAnalisados" style="width: 220px;height: auto !important;min-height: 100%;border-color: black; border: 1px solid #ddd">
+	<div class="vertical-menu nav-collapse navbar-left navbar riscos-selecionados" id="riscosAnalisados">
 		    <ul class="nav">
 		        <li class="title">Riscos</li>
 		    	<c:forEach items="${riscosSelecionados}" var="riscoSelecionado" varStatus="countRiscos">
@@ -20,8 +21,8 @@
 		    </ul>
 	</div>
 	
-	<div class="controls" style= "background-color: whitesmoke;  border-color: black; border: 1px solid #ddd; height: auto !important;min-height: 100%;">
-		<div class="form-horizontal" style="display: table; margin-left: 0 !important; padding-left: 0 !important">
+	<div class="controls analise" >
+		<div class="form-horizontal form-analise">
 		<div class="form-group" style="margin-left: -30px !important">
 			<label for="tipo" class="col-sm-2 control-label"style="font-weight: normal;">Tipo do Risco</label>
 			<div class="col-sm-10">

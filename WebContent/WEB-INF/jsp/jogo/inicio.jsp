@@ -33,7 +33,7 @@
 	<div id="projeto">
 		<h3>Escolha um projeto para iniciar o jogo</h3>
 		<div class="selectProjeto">
-	    	<form id="formProjeto" action="<c:url value="/jogo/jogar"/>" method="post" >
+	    	<form id="formProjeto" action="<c:url value="/jogo/iniciarJogo"/>" method="post" >
 		    	<select id="projetoId" name="projeto.id" class="required form-control">
 					<option value="0">Escolha um Projeto...</option>
 					<c:forEach items= "${projetos}" var="projeto">
