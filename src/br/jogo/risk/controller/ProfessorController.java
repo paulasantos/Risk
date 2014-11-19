@@ -2,7 +2,6 @@ package br.jogo.risk.controller;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.jogo.risk.dao.JogoDao;
@@ -12,10 +11,9 @@ import br.jogo.risk.dao.ProjetoDao;
 import br.jogo.risk.dao.RiscoAnalisadoDao;
 import br.jogo.risk.dao.RiscoDao;
 import br.jogo.risk.dao.UsuarioSession;
-import br.jogo.risk.model.Projeto;
 
 @Resource
-@Path("/professor")
+@Path("/professores")
 public class ProfessorController {
 	
 	private Result result;
@@ -39,19 +37,22 @@ public class ProfessorController {
 		this.perfilDao = perfilDao;
 	}
 	
-	@Get("")
+	@Get({"", "/"})
 	public void cadastro() {
-		result.include("projetos",projetoDao.findAll());
-	}
-	
-	@Post
-	public void iniciarJogo(Projeto projeto) {
-	
-	}
-	
-	@Get("/meusProjetos")
-	public void meusProjetos(){
+//		result.include("projetos",projetoDao.findAll());
 		result.include("projetos", projetoDao.findProjetoByProfessor(jogadorSession.getJogador().getId()));
+	}
+	
+	@Get("/{projetoId}/edit")
+	public void editProjeto(Long projetoId) {
+//		result.include("projetos",projetoDao.findAll());
+		result.include("projeto", projetoDao.find(projetoId))
+		.redirectTo(this).formularioProjeto();
+	}
+	
+	@Get("/projeto/new")
+	public void formularioProjeto(){
+		
 	}
 
 	@Get("/projetosCompartilhados")
