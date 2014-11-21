@@ -11,26 +11,22 @@
 
 <div class="content">
 	<div id="form-action" style="margin-left: 50%; margin-top: 20px; margin-bottom: 20px;">
-		<a class='btn btn-primary' href="<c:url value='/professores/projeto/new'/>" id="novoprojeto">Novo Projeto</a>
+		<a class='btn btn-primary btn-lg' href="<c:url value='/professores/plano/new'/>" id="novoPlano">Novo Plano</a>
 	</div>
-
+	
 	<div>
 		<table class="table table-bordered" style="width: 70% ; margin-left: 15%;">
 			<thead>
 				<tr>
-					<th  width=5% class="acoes">Ações</th>
-				    <th width=25%>Projeto</th>
-					<th width=20%>Resumo</th>
-					<th width=15%>Orçamento</th>
-					<th width=10%>Cronograma</th>
-					<th width=25%>Quantidade de Membros</th>
+					<th width=5% class="acoes">Ações</th>
+				    <th>Projeto</th>
 				</tr>
 			</thead>
 			<tbody class="content">
 				<c:forEach items="${projetos}" var="projeto">
 					<tr projetoid="${projeto.id}">
 						<td id="acoes" class="center">	
-							<a  href="<c:url value='/professores/${projeto.id}/edit'/>">
+							<a  href="<c:url value='/professores/projeto/${projeto.id}/edit'/>">
 								<i class="fa fa-pencil-square-o" title="Editar"></i>
 							</a>
 							<a onclick="intranet.formulario.formDelete(${projeto.id});">
@@ -38,13 +34,7 @@
 							</a>
 						</td>
 	
-						<td class="center"> <a href="<c:url value='/professores/${projeto.id}/show'/>"> ${projeto.nome} </a> </td>
-						<td class="center">
-							${projeto.resumo}
-						</td>
-						<td class="center"> ${projeto.orcamento}</td>
-						<td class="center"> ${projeto.cronograma}</td>
-						<td class="center"> ${projeto.qtdMembros}</td>
+						<td class="center">${planoDeRisco.projeto.nome} </a> </td>
 					</tr>
 				</c:forEach>
 			</tbody>

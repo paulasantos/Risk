@@ -43,7 +43,7 @@ public class PlanoDeRiscoDaoImpl extends GenericDaoImpl implements PlanoDeRiscoD
 	@Override
 	public List<PlanoDeRiscos> findMyPlanos(Long professorId) {
 		return getSession().createCriteria(PlanoDeRiscos.class, "pr")
-				.add(Restrictions.eq("p.usuario.id", professorId))
+				.add(Restrictions.eq("pr.usuario.id", professorId))
 				.list();
 	}
 }

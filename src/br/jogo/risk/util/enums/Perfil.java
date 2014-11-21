@@ -2,8 +2,8 @@ package br.jogo.risk.util.enums;
 
 public enum Perfil {
 	
-	JOGADOR ("Jogador"),
-	PROFESSOR ("Professor");
+	JOGADOR ("jogador"),
+	PROFESSOR ("professor");
 	
 	private String perfil;
 	

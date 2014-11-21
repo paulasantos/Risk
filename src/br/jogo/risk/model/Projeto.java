@@ -122,4 +122,12 @@ public class Projeto {
 	public void setTipo(Character tipo) {
 		this.tipo = tipo;
 	}
+
+	public Usuario getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Usuario professor) {
+		this.professor = professor;
+	}
 }
