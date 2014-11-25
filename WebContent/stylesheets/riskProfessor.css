@@ -1,0 +1,126 @@
+/* line 1, ../sass/riskProfessor.scss */
+#menu-principal {
+  width: 1300px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+/* line 7, ../sass/riskProfessor.scss */
+#menu-principal .navbar-inverse .navbar-brand {
+  color: white !important;
+}
+/* line 12, ../sass/riskProfessor.scss */
+#menu-principal .navbar-inverse .navbar-nav li a {
+  color: white;
+}
+
+/* line 20, ../sass/riskProfessor.scss */
+.content {
+  width: 1300px;
+  height: auto;
+}
+/* line 24, ../sass/riskProfessor.scss */
+.content .box-big {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/* line 28, ../sass/riskProfessor.scss */
+.content .box-big .box-title {
+  width: 100%;
+  padding: 8px;
+  background: darkcyan;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+/* line 36, ../sass/riskProfessor.scss */
+.content .box-big .box-content {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 25px;
+  font-weight: normal !important;
+}
+/* line 41, ../sass/riskProfessor.scss */
+.content .box-big .box-content .gravar-plano {
+  margin-left: 30px;
+  margin-top: -15px;
+}
+/* line 47, ../sass/riskProfessor.scss */
+.content .dropdown-toggle {
+  padding-bottom: 0px;
+}
+
+/* line 52, ../sass/riskProfessor.scss */
+.control-label {
+  font-weight: normal;
+}
+
+/* line 56, ../sass/riskProfessor.scss */
+#divGravar {
+  margin-left: 30px;
+}
+
+/* line 60, ../sass/riskProfessor.scss */
+.riscos {
+  border: 1px solid #ddd;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+/* line 64, ../sass/riskProfessor.scss */
+.riscos .riscos-box-title {
+  padding: 8px;
+  background: darkcyan;
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+/* line 71, ../sass/riskProfessor.scss */
+.riscos .riscos-content {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+}
+/* line 77, ../sass/riskProfessor.scss */
+.riscos .riscos-content .remove-risco {
+  float: right;
+}
+/* line 80, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-title {
+  margin-top: 10px;
+  width: 97%;
+}
+/* line 84, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-options {
+  margin-left: -30px !important;
+}
+/* line 86, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-options .risco-options-select {
+  width: 138px;
+}
+/* line 90, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-acoes {
+  margin-left: 187px !important;
+  margin-bottom: 10px;
+  height: auto;
+  width: 78%;
+  border: 1px solid darkcyan;
+}
+/* line 96, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-acoes .remove-acao {
+  float: right;
+}
+/* line 99, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-acoes .risco-acao-descricao {
+  margin-top: 10px;
+}
+/* line 102, ../sass/riskProfessor.scss */
+.riscos .riscos-content .risco-acoes .risco-acao-options {
+  width: 70%;
+}
+/* line 106, ../sass/riskProfessor.scss */
+.riscos .riscos-content .add-acao {
+  margin: 5px 0 10px 10px;
+}
+/* line 110, ../sass/riskProfessor.scss */
+.riscos .add-risco {
+  margin: 20px 0 10px 10px;
+}

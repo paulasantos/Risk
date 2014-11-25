@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<link rel="stylesheet" type="text/css" href="/risk/stylesheets/jogo.css">
-
+<!-- <link rel="stylesheet" type="text/css" href="/risk/stylesheets/jogo.css"> -->
 <jsp:include page="../index/header.jsp" />
-<!-- <link rel="stylesheet" type="text/css" href="/risk/jwysiwyg/jquery.wysiwyg.css">
-<script type="text/javascript" src="/risk/jwysiwyg/js/jquery.wysiwyg.js"></script>
-<script type="text/javascript" src="/risk/jwysiwyg/js/jquery.wysiwyg.min.js"></script>
- -->
  
 <link href="/risk/editor/summernote.css" rel="stylesheet">
 <script src="/risk/editor/summernote.min.js"></script>
 
 <jsp:include page="../professor/menuProfessor.jsp" />
+
 <script type="text/javascript" src="/risk/js/risk/jogo.js"></script>
 
 <div class="content">
@@ -65,19 +61,13 @@
 						<textarea class="required editorProjeto" name="projeto.descricao">${projeto.descricao}</textarea>
 				    </div>
 			  	</div>
-			  	<div style="margin-left: 30px">
+			  	<div id="divGravar">
 				  	<button type="submit" class="btn btn-primary btn-lg center-block" > Gravar </button>
 			  	</div>
 			</form>
 		</div>
 	</div>
 </div>
-<style>
-.dropdown-toggle{
-	padding-bottom: 0px;
-}
-}
-</style>
 <script>
 $(function() {
 	$(".editorProjeto").summernote({

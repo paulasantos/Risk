@@ -1,0 +1,118 @@
+#menu-principal {
+	width: 1300px;
+	margin: 0 auto;
+	margin-top: 30px;
+	
+	.navbar-inverse{ 
+		.navbar-brand {
+			color: white !important;
+		}
+		.navbar-nav{
+			li {
+				a{
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+.content{
+	width: 1300px; 
+	height: auto;
+	
+	.box-big{
+		margin-top: 10px; 
+		margin-bottom: 20px;
+		
+		.box-title{
+			width: 100%;
+			padding: 8px;
+			background:darkcyan; 
+			color: white; 
+			text-align: center;
+			font-size: 20px;
+		}	
+		.box-content{
+			margin-top: 10px; 
+			width: 90%; 
+			margin-left: 25px;
+			font-weight: normal !important;
+			.gravar-plano{
+				margin-left: 30px;
+				margin-top: -15px
+			}
+		}
+	}
+	.dropdown-toggle{
+		padding-bottom: 0px;
+	}
+}
+
+.control-label{
+	font-weight: normal;
+}
+
+#divGravar {
+	margin-left: 30px
+}
+
+.riscos{
+	border: 1px solid #ddd;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	.riscos-box-title{
+		 padding: 8px;
+		 background:darkcyan;
+		 color: white;
+		 text-align: center;
+		 font-size: 15px;
+	}
+	.riscos-content{
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		margin-top: 10px;
+		
+		
+		.remove-risco{
+			float: right;
+		}
+		.risco-title{
+			margin-top: 10px; 
+			width: 97%;
+		}
+		.risco-options{
+			margin-left: -30px !important;
+			.risco-options-select{
+				width: 138px;
+			}
+		}
+		.risco-acoes{
+			margin-left: 187px !important;
+			margin-bottom: 10px;
+			height: auto; 
+			width: 78%;
+			border: 1px solid darkcyan;
+			.remove-acao{
+				float: right;
+			}
+			.risco-acao-descricao{
+				margin-top: 10px;
+			}
+			.risco-acao-options{
+				width: 70%;
+			}
+		}
+		.add-acao{
+			margin: 5px 0 10px 10px;
+		}
+	}
+	.add-risco{
+			margin: 20px 0 10px 10px;
+	}
+}
+
+
+
+
+

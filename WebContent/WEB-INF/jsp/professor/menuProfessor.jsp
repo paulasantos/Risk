@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/risk/stylesheets/riskProfessor.css">
+
 <div id="menu-principal">
 	<nav class="navbar navbar-inverse" role="navigation">
 		<div class="container-fluid">
@@ -28,42 +30,3 @@
 		</div>
 	</nav>
 </div>
-
-<style>
-#menu-principal {
-	width: 1300px;
-	margin: 0 auto;
-	margin-top: 30px;
-}
-.control-label{
-	font-weight: normal;
-}
-.navbar-inverse .navbar-brand {
-	color: white !important;
-}
-.navbar-inverse .navbar-nav>li>a {
-	color: white;
-}
-.content {
-	width: 1300px; 
-	height: auto;
-}
-.box-big{
-	margin-top: 10px; 
-	margin-bottom: 20px;
-}
-.box-title{
-	width: 100%;
-	padding: 8px;
-	background:darkcyan; 
-	color: white; 
-	text-align: center;
-	font-size: 20px;
-}
-.box-content{
-	margin-top: 10px; 
-	width: 90%; 
-	margin-left: 25px;
-	font-weight: normal !important;
-}
-</style>

@@ -2,11 +2,9 @@ package br.jogo.risk.util.enums;
 
 public enum TipoDeRisco {
 	
-	CONTIGENCIAR ('C',"Contingenciar"),
-	EVITAR ('E',"Evitar"),
-	MISTIGAR ('M',"Mistigar"),
-	TRANSFERIR ('T',"Transferir");
-	
+	POSITIVO ('P',"Positivo"),
+	NEGATIVO ('N',"Negativo");
+
 	private Character status;
 	private String descricao;
 	

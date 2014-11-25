@@ -2,8 +2,10 @@ package br.jogo.risk.util.enums;
 
 public enum TipoDeResposta {
 	
-	POSITIVO ('P',"Positivo"),
-	NEGATIVO ('N',"Negativo");
+	CONTIGENCIAR ('C',"Contingenciar"),
+	EVITAR ('E',"Evitar"),
+	MISTIGAR ('M',"Mistigar"),
+	TRANSFERIR ('T',"Transferir");
 	
 	private Character status;
 	private String descricao;

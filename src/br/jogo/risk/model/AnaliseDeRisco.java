@@ -29,6 +29,8 @@ public class AnaliseDeRisco {
 	
 	private Character estrategia;
 	
+	private String tipo;
+	
 	@ManyToOne
 	private PlanoDeRiscos planoDeRiscos;
 	
@@ -59,7 +61,7 @@ public class AnaliseDeRisco {
 		this.prioridade = prioridade;
 	}
 
-	public Character getImpacto() {
+	public String getImpacto() {
 		return impacto;
 	}
 
@@ -98,5 +100,12 @@ public class AnaliseDeRisco {
 	public void setAnaliseAcoesEstrategicas(
 			List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas) {
 		this.analiseAcoesEstrategicas = analiseAcoesEstrategicas;
+	}
+	public Character getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Character tipo) {
+		this.tipo = tipo;
 	}
 }
