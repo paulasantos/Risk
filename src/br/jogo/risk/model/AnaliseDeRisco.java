@@ -2,6 +2,7 @@ package br.jogo.risk.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class AnaliseDeRisco {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
 	private Long id;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Risco risco;
 		
 	private Character prioridade;
@@ -29,12 +30,12 @@ public class AnaliseDeRisco {
 	
 	private Character estrategia;
 	
-	private String tipo;
+	private Character tipo;
 	
 	@ManyToOne
 	private PlanoDeRiscos planoDeRiscos;
 	
-	@OneToMany(mappedBy="analise")
+	@OneToMany(mappedBy="analise", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas;
 
 	public Long getId() {
@@ -61,7 +62,7 @@ public class AnaliseDeRisco {
 		this.prioridade = prioridade;
 	}
 
-	public String getImpacto() {
+	public Character getImpacto() {
 		return impacto;
 	}
 
@@ -97,8 +98,7 @@ public class AnaliseDeRisco {
 		return analiseAcoesEstrategicas;
 	}
 
-	public void setAnaliseAcoesEstrategicas(
-			List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas) {
+	public void setAnaliseAcoesEstrategicas(List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas) {
 		this.analiseAcoesEstrategicas = analiseAcoesEstrategicas;
 	}
 	public Character getTipo() {

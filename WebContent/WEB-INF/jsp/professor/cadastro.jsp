@@ -13,7 +13,6 @@
 	<div id="form-action" style="margin-left: 50%; margin-top: 20px; margin-bottom: 20px;">
 		<a class='btn btn-primary' href="<c:url value='/professores/projeto/new'/>" id="novoprojeto">Novo Projeto</a>
 	</div>
-
 	<div>
 		<table class="table table-bordered" style="width: 70% ; margin-left: 15%;">
 			<thead>
@@ -30,12 +29,13 @@
 				<c:forEach items="${projetos}" var="projeto">
 					<tr projetoid="${projeto.id}">
 						<td id="acoes" class="center">	
-							<a  href="<c:url value='/professores/${projeto.id}/edit'/>">
+							<a  href="<c:url value='/professores/projeto/${projeto.id}/edit'/>" style="float: left;">
 								<i class="fa fa-pencil-square-o" title="Editar"></i>
 							</a>
-							<a onclick="intranet.formulario.formDelete(${projeto.id});">
-								<i class="fa fa-trash-o" title="Remover"></i>
-							</a>
+							<form id="formDelete" action="<c:url value="/professores/projeto/delete/${projeto.id}"/>" method="POST"
+								style="width: auto; float: right; height: auto; margin-top: -3px;">
+								<button type="submit" name="_method" value="DELETE" class="btn-link"><i class="fa fa-trash-o" title="Remover"></i></button>
+		  					</form>
 						</td>
 	
 						<td class="center"> <a href="<c:url value='/professores/${projeto.id}/show'/>"> ${projeto.nome} </a> </td>

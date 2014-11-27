@@ -57,15 +57,15 @@
 									<div class="form-group">
 										<label class="col-sm-2 control-label">Tipo do Risco</label>
 									    <div class="col-sm-10">
-											<input type="radio" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].tipo" value="P"> Positivo 
-											<input type="radio" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].tipo" value="N"> Negativo
+											<input type="radio" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].tipo" value="P"> Positivo 
+											<input type="radio" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].tipo" value="N"> Negativo
 										</div>
 									</div>
 									
 									<div class="form-group risco-options">
 										<label for="probabilidade" class="col-sm-2 control-label" >Probabilidade</label>
 										<div class="col-sm-10">
-											<select id="probabilidade" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].probabilidade" class="required form-control risco-options-select">
+											<select id="probabilidade" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].probabilidade" class="required form-control risco-options-select">
 												<option value="A">Alta</option>
 												<option value="M">Média</option>
 												<option value="B">Baixa</option>
@@ -75,7 +75,7 @@
 									<div class="form-group risco-options">
 										<label for="impacto" class="col-sm-2 control-label">Impacto</label>
 										<div class="col-sm-10">
-											<select id="impacto" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].impacto" class="required form-control risco-options-select">
+											<select id="impacto" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].impacto" class="required form-control risco-options-select">
 												<option value="A">Alto</option>
 												<option value="M">Médio</option>
 												<option value="B">Baixo</option>
@@ -85,7 +85,7 @@
 									<div class="form-group risco-options">
 										<label for="prioridade" class="col-sm-2 control-label">Prioridade</label>
 										<div class="col-sm-10">
-											<select id="prioridade" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].prioridade" class="required form-control risco-options-select">
+											<select id="prioridade" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].prioridade" class="required form-control risco-options-select">
 												<option value="A">Alta</option>
 												<option value="M">Média</option>
 												<option value="B">Baixa</option>
@@ -95,7 +95,7 @@
 									<div class="form-group risco-options">
 										<label for="resposta" class="col-sm-2 control-label">Tipo de Resposta</label>
 										<div class="col-sm-10">
-											<select id="resposta" name="planoDeRisco.analisesDeRiscos[${countRiscos.count-1}].resposta" class="required form-control risco-options-select">
+											<select id="resposta" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].resposta" class="required form-control risco-options-select">
 												<option value="E">Evitar</option>
 												<option value="T">Transferir</option>
 												<option value="M">Mistigar</option>
@@ -123,8 +123,7 @@
 													<div class="form-group">
 														<label class="col-sm-2 control-label">Ação de Resposta</label>
 											    		<div class="col-sm-10 risco-acao-options">
-															<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].
-																	analiseAcoesEstrategicas[${countAcoes.count -1}].estrategia.descricao" value="${acao.estrategia.descricao}">
+															<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].analiseAcoesEstrategicas[${countAcoes.count -1}].estrategia.descricao" value="${acao.estrategia.descricao}">
 														</div>
 													</div>
 													
@@ -132,7 +131,7 @@
 														<label class="col-sm-2 control-label">Fase de Realização</label>
 											    		<div class="col-sm-10 risco-acao-options">
 													    	<select id="faseId" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].
-																	analiseAcoesEstrategicas[${countAcoes.count -1}].fase.id" class="required form-control">
+																	analiseAcoesEstrategicas[${countAcoes.count -1}].faseDeRealizacao.id" class="required form-control">
 																<option value="0">Escolha a fase de aplicação da ação...</option>
 																<c:forEach items= "${fases}" var="fase">
 																	<option value="${fase.id}"> ${fase.nome} </option>
@@ -160,7 +159,7 @@
 					<c:if test="${planoDeRiscos.id == null}">
 						<div data-collapse="accordion persist" class="more-risco">
 					  		<h4>Risco 1</h4>
-							<div class="riscos-content" riscoIndice="1">
+							<div class="riscos-content" riscoSize="1">
 								<div class="remove-risco">
 				  			 		<button type="button" class="btn delete-risco" title="Remover">
 				  			 			<i class="fa fa-trash"></i>
@@ -175,15 +174,15 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label">Tipo do Risco</label>
 								    <div class="col-sm-10">
-										<input type="radio" name="planoDeRisco.analisesDeRiscos[0].tipo" value="P"> Positivo 
-										<input type="radio" name="planoDeRisco.analisesDeRiscos[0].tipo" value="N"> Negativo
+										<input type="radio" name="planoDeRiscos.analisesDeRiscos[1].tipo" value="P"> Positivo 
+										<input type="radio" name="planoDeRiscos.analisesDeRiscos[1].tipo" value="N"> Negativo
 									</div>
 								</div>
 								
 								<div class="form-group risco-options">
 									<label for="probabilidade" class="col-sm-2 control-label" >Probabilidade</label>
 									<div class="col-sm-10">
-										<select id="probabilidade" name="planoDeRisco.analisesDeRiscos[0].probabilidade" class="required form-control risco-options-select">
+										<select id="probabilidade" name="planoDeRiscos.analisesDeRiscos[1].probabilidade" class="required form-control risco-options-select">
 											<option value="A">Alta</option>
 											<option value="M">Média</option>
 											<option value="B">Baixa</option>
@@ -193,7 +192,7 @@
 								<div class="form-group risco-options">
 									<label for="impacto" class="col-sm-2 control-label">Impacto</label>
 									<div class="col-sm-10">
-										<select id="impacto" name="planoDeRisco.analisesDeRiscos[0].impacto" class="required form-control risco-options-select">
+										<select id="impacto" name="planoDeRiscos.analisesDeRiscos[1].impacto" class="required form-control risco-options-select">
 											<option value="A">Alto</option>
 											<option value="M">Médio</option>
 											<option value="B">Baixo</option>
@@ -203,7 +202,7 @@
 								<div class="form-group risco-options">
 									<label for="prioridade" class="col-sm-2 control-label">Prioridade</label>
 									<div class="col-sm-10">
-										<select id="prioridade" name="planoDeRisco.analisesDeRiscos[0].prioridade" class="required form-control risco-options-select">
+										<select id="prioridade" name="planoDeRiscos.analisesDeRiscos[1].prioridade" class="required form-control risco-options-select">
 											<option value="A">Alta</option>
 											<option value="M">Média</option>
 											<option value="B">Baixa</option>
@@ -213,7 +212,7 @@
 								<div class="form-group risco-options">
 									<label for="resposta" class="col-sm-2 control-label">Tipo de Resposta</label>
 									<div class="col-sm-10">
-										<select id="resposta" name="planoDeRisco.analisesDeRiscos[0].resposta" class="required form-control risco-options-select">
+										<select id="resposta" name="planoDeRiscos.analisesDeRiscos[1].resposta" class="required form-control risco-options-select">
 											<option value="E">Evitar</option>
 											<option value="T">Transferir</option>
 											<option value="M">Mistigar</option>
@@ -227,7 +226,7 @@
 									</div>
 									<div data-collapse="accordion persist" class="acoes">
 								  		<h4>Ação 1</h4>
-							  			<div risco=1 class="acao" acaoSize="1">
+							  			<div risco=0 class="acao" acaoSize="0">
 							  				<div class="remove-acao">
 				  			 					<button type="button" class="btn delete-acao" title="Remover">
 				  			 						<i class="fa fa-trash"></i>
@@ -236,7 +235,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Ação de Resposta</label>
 									    		<div class="col-sm-10 risco-acao-options">
-													<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[0].analiseAcoesEstrategicas[0].estrategia.desricao"
+													<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[0].estrategia.descricao"
 														value="Promover treinamento da equipe sobre gerenciamento de projetos">
 												</div>
 											</div>
@@ -244,7 +243,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Fase de Realização</label>
 									    		<div class="col-sm-10 risco-acao-options">
-											    	<select id="faseId" name="planoDeRisco.analisesDeRiscos[0].analiseAcoesEstrategicas[0].fase.id"" class="required form-control">
+											    	<select id="faseId" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[1].faseDeRealizacao.id" class="required form-control">
 														<option value="0">Escolha a fase de aplicação da ação...</option>
 														<c:forEach items= "${fases}" var="fase">
 															<option value="${fase.id}"> ${fase.nome} </option>
@@ -255,7 +254,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Custo</label>
 									    		<div class="col-sm-10 risco-acao-options">
-													<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRisco.analisesDeRiscos[0].analiseAcoesEstrategicas[0].id" value="">
+													<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[0].custo" value="">
 												</div>
 											</div>							
 						  				</div>
@@ -295,7 +294,6 @@
 
 <script>
 $(function() {
-	$("#valorAcaoEstrategica").maskMoney({showSymbol:true, symbol:"R$", decimal:",", thousands:"."});
 	
 	$(".number").numberMask({beforePoint:5});
 	
@@ -309,25 +307,25 @@ $(function() {
     function addAcao(element) {
 		var acaoSize = $(element).parent().find(".acao").size() + 1;
 		
-		var riscoSize = $(element).parent().find(".acao").attr("risco");
+		var riscoSize = $(element).parent().find(".acao").attr("risco")+1;
 		
 		$(element).parent().find(".acoes").append('<h4>Ação '+acaoSize+'</h4>'+
 												 '<div risco="'+riscoSize+'" class="acao" acaoSize="'+acaoSize+'">'+ 
 												 '<div class="remove-acao"> <button type="button" class="btn delete-acao" title="Remover"><i class="fa fa-trash"></i></button></div>'+
 												 '<div class="form-group"> <label class="col-sm-2 control-label">Ação de Resposta</label>'+
 													'<div class="col-sm-10 risco-acao-options">'+ 
-														'<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
+														'<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].estrategia.descricao" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
 													'</div>'+
 												'</div>'+
 											
 												'<div class="form-group"> <label class="col-sm-2 control-label">Fase de Realização</label> <div class="col-sm-10 risco-acao-options">'+
-											    	'<select id="faseId" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id"" class="required form-control">'+
+											    	'<select id="faseId" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].faseDeRealizacao.id"" class="required form-control">'+
 														'<option value="0">Escolha a fase de aplicação da ação...</option> <c:forEach items= "${fases}" var="fase"><option value="${fase.id}"> ${fase.nome} </option></c:forEach>'+
 													'</select>'+	
 												'</div></div>'+
 												
 												'<div class="form-group"> <label class="col-sm-2 control-label">Custo</label> <div class="col-sm-10 risco-acao-options">'+
-													'<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id" value="">'+
+													'<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].custo" value="">'+
 												'</div> </div>'+
 												'</div>');
 												
@@ -351,46 +349,45 @@ $(function() {
 	}
 	
 	function addRisco(element) {
-		var riscoSize = $(element).parent().find(".more-risco").find(".riscos-content").size();
+		var riscoSize = $(element).parent().find(".more-risco").find(".riscos-content").size()+1;
 		
-		riscoSize = riscoSize + 1;
 		
 		$(element).parent().find(".more-risco").find(".riscos-content").parent().append('<h4>Risco '+riscoSize+'</h4>'+
-												 	'<div class="riscos-content" riscoIndice="'+riscoSize+'">'+
+												 	'<div class="riscos-content" riscoSize="'+riscoSize+'">'+
 												  	'	<div class="remove-risco"> <button type="button" class="btn delete-risco " title="Remover"> <i class="fa fa-trash"></i> </button></div>'+
 													'	<div class="form-group risco-title" > <label class="col-sm-2 control-label">Descrição</label>'+
-								    				'		<div class="col-sm-10"> <input type="text" class="form-control required" name="planoDeRiscos.analisesDeRiscos[].risco.descricao" ></div>'+
+								    				'		<div class="col-sm-10"> <input type="text" class="form-control required" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].risco.descricao" ></div>'+
 						  							'	</div>'+
 						  							'	<div class="form-group"> <label class="col-sm-2 control-label">Tipo do Risco</label>'+
 						  							'		<div class="col-sm-10">'+
-						  							'			<input type="radio" name="planoDeRisco.analisesDeRiscos[].tipo" value="P"> Positivo <input type="radio" name="planoDeRisco.analisesDeRiscos[].tipo" value="N"> Negativo'+
+						  							'			<input type="radio" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].tipo" value="P"> Positivo <input type="radio" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].tipo" value="N"> Negativo'+
 													'		</div>'+
 													'	</div>'+
 								
 													'	<div class="form-group risco-options"> <label for="probabilidade" class="col-sm-2 control-label" >Probabilidade</label>'+
 													'		<div class="col-sm-10">'+
-													'			<select id="probabilidade" name="planoDeRisco.analisesDeRiscos[].probabilidade" class="required form-control risco-options-select">'+
+													'			<select id="probabilidade" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].probabilidade" class="required form-control risco-options-select">'+
 													'				<option value="A">Alta</option><option value="M">Média</option><option value="B">Baixa</option>'+
 													'			</select>'+
 													'		</div>'+
 													'	</div>'+
 													'	<div class="form-group risco-options"><label for="impacto" class="col-sm-2 control-label">Impacto</label>'+
 													'		<div class="col-sm-10">'+
-													'			<select id="impacto" name="planoDeRisco.analisesDeRiscos[].impacto" class="required form-control risco-options-select">'+
+													'			<select id="impacto" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].impacto" class="required form-control risco-options-select">'+
 													'				<option value="A">Alto</option> <option value="M">Médio</option> <option value="B">Baixo</option>'+
 													'			</select>'+
 													'		</div>'+
 													'	</div>'+
 													'	<div class="form-group risco-options"> <label for="prioridade" class="col-sm-2 control-label">Prioridade</label>'+
 													'		<div class="col-sm-10">'+
-													'			<select id="prioridade" name=".prioridade" class="required form-control risco-options-select">'+
+													'			<select id="prioridade" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].prioridade" class="required form-control risco-options-select">'+
 													'				<option value="A">Alta</option><option value="M">Média</option><option value="B">Baixa</option>'+
 													'			</select>'+
 													'		</div>'+
 													'	</div>'+
 													'	<div class="form-group risco-options"> <label for="resposta" class="col-sm-2 control-label">Tipo de Resposta</label>'+
 													'		<div class="col-sm-10">'+
-													'			<select id="resposta" name="planoDeRisco.analisesDeRiscos[].resposta" class="required form-control risco-options-select">'+
+													'			<select id="resposta" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].resposta" class="required form-control risco-options-select">'+
 													'				<option value="E">Evitar</option> <option value="T">Transferir</option> <option value="M">Mistigar</option> <option value="C">Contingenciar</option>'+
 													'			</select>'+
 													'		</div>'+
@@ -402,12 +399,12 @@ $(function() {
 							  						'				<div class="remove-acao"> <button type="button" class="btn delete-acao" title="Remover"><i class="fa fa-trash"></i></button></div>'+
 													'				<div class="form-group"><label class="col-sm-2 control-label">Ação de Resposta</label>'+
 									    			'					<div class="col-sm-10 risco-acao-options">'+
-													'						<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
+													'						<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].analiseAcoesEstrategicas[].estrategia.id" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
 													'					</div>'+
 													'				</div>'+
 													'				<div class="form-group"> <label class="col-sm-2 control-label">Fase de Realização</label>'+
 									    			'					<div class="col-sm-10 risco-acao-options">'+
-											    	'						<select id="faseId" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id"" class="required form-control">'+
+											    	'						<select id="faseId" name="planoDeRisco.analisesDeRiscos['+riscoSize+'].analiseAcoesEstrategicas[].faseDeRealizacao.id"" class="required form-control">'+
 													'							<option value="0">Escolha a fase de aplicação da ação...</option>'+
 													'								<c:forEach items= "${fases}" var="fase"><option value="${fase.id}"> ${fase.nome} </option></c:forEach>'+
 													'						</select>'+	
@@ -415,7 +412,7 @@ $(function() {
 													'				</div>'+
 													'				<div class="form-group"> <label class="col-sm-2 control-label">Custo</label>'+
 													'					<div class="col-sm-10 risco-acao-options">'+
-													'						<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRisco.analisesDeRiscos[].analiseAcoesEstrategicas[].id" value="">'+
+													'						<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRisco.analisesDeRiscos['+riscoSize+'].analiseAcoesEstrategicas[].custo" value="">'+
 													'					</div>'+
 													'				</div>'+							
 						  							'			</div>'+
@@ -452,7 +449,7 @@ $(function() {
 	
 	function deleteRisco(element) {
 		if($(".delete-risco").parent().parent().size() > 1){
-			var riscoIndice = "Risco " + $(element).parent().parent().attr("riscoIndice");
+			var riscoIndice = "Risco " + $(element).parent().parent().attr("riscoSize");
 			$(element).parent().parent().parent().find("h4:contains("+riscoIndice+")").remove();
 			$(element).parent().parent().remove();
 			
@@ -461,6 +458,18 @@ $(function() {
 				var indice = i + 1;
 				$(r).text("Risco " + indice);
 			});
+			
+			var divsRiscos = $(".add-risco").parent().find(".more-risco").find(".riscos-content");
+				$(divsRiscos).each(function (d, div) {
+				var riscoSize = d + 1;
+				$(div).attr({"riscoSize" : riscoSize});
+				var divAcoes = $(div).find(".acoes").find(".acao");
+				
+				$(divAcoes).each(function (a, divAcao) {
+					$(divAcao).attr({"risco" : riscoSize});
+				});
+			});
+			
 		}
 	}
 	
@@ -474,6 +483,12 @@ $(function() {
 			$(riscos).each(function (i, a) {
 				var indice = i + 1;
 				$(a).text("Ação " + indice);
+			});
+			
+			var divsAcoes = $(".add-acao").parent().find(".acao"); 
+				$(divsAcoes).each(function (d, div) {
+				var acaoSize = d + 1;
+				$(div).attr({"acaoSize" : acaoSize});
 			});
 		}
 	}

@@ -39,7 +39,7 @@
 				<div class="form-group">
 				    <label for="projetoOrcamento" class="col-sm-2 control-label">Orçamento do projeto (R$)</label>
 				    <div class="col-sm-10">
-			    		<input type="text" class="form-control required" id="projetoOrcamento" name="projeto.orcamento" value="${projeto.orcamento}">
+			    		<input type="text" class="form-control required" id="projetoOrcamento" name="projeto.orcamentoMoney" value="${projeto.orcamento}">
 				    </div>
 			  	</div>
 				<div class="form-group">

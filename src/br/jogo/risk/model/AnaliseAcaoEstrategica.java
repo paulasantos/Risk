@@ -18,9 +18,6 @@ public class AnaliseAcaoEstrategica {
 	private AcaoEstrategica estrategia;
 	
 	@ManyToOne
-	private Risco risco;
-
-	@ManyToOne
 	private AnaliseDeRisco analise;
 	
 	@ManyToOne
@@ -44,14 +41,6 @@ public class AnaliseAcaoEstrategica {
 
 	public void setEstrategia(AcaoEstrategica estrategia) {
 		this.estrategia = estrategia;
-	}
-
-	public Risco getRisco() {
-		return risco;
-	}
-
-	public void setRisco(Risco risco) {
-		this.risco = risco;
 	}
 
 	public AnaliseDeRisco getAnalise() {

@@ -2,16 +2,21 @@ package br.jogo.risk.controller;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.jogo.risk.dao.AnaliseAcaoEstrategicaDao;
+import br.jogo.risk.dao.FaseDao;
 import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.dao.ProjetoDao;
 import br.jogo.risk.dao.RiscoDao;
 import br.jogo.risk.dao.UsuarioSession;
+import br.jogo.risk.model.AnaliseAcaoEstrategica;
+import br.jogo.risk.model.AnaliseDeRisco;
 import br.jogo.risk.model.PlanoDeRiscos;
 import br.jogo.risk.model.Projeto;
 import br.jogo.risk.util.enums.TipoDeProjeto;
@@ -25,14 +30,18 @@ public class ProfessorController {
 	private RiscoDao riscoDao;
 	private PlanoDeRiscoDao planoDeRiscoDao;
 	private UsuarioSession jogadorSession;
+	private FaseDao faseDao;
+	private AnaliseAcaoEstrategicaDao analiseAcaoEstrategicaDao;
 
-	public ProfessorController(Result result, ProjetoDao projetoDao, RiscoDao riscoDao, PlanoDeRiscoDao planoDeRiscoDao, 
+	public ProfessorController(Result result, ProjetoDao projetoDao, RiscoDao riscoDao, PlanoDeRiscoDao planoDeRiscoDao, FaseDao faseDao, AnaliseAcaoEstrategicaDao acaoEstrategicaDao,
 			UsuarioSession jogadorSession) {
 		this.result = result;
 		this.projetoDao = projetoDao;
 		this.riscoDao = riscoDao;
 		this.planoDeRiscoDao = planoDeRiscoDao;
 		this.jogadorSession = jogadorSession;
+		this.faseDao = faseDao;
+		this.analiseAcaoEstrategicaDao = acaoEstrategicaDao;
 	}
 	
 	@Get({"", "/"})
@@ -66,6 +75,15 @@ public class ProfessorController {
 		result.redirectTo(this).cadastro();
 	}
 
+	@Delete("/projeto/delete/{id}")
+	public void delete( Long id ){
+		Projeto projeto = projetoDao.find(id);
+		if(projeto != null){
+			projetoDao.delete(projeto);
+		}
+		result.include("Projeto deletado com sucesso.", "success").redirectTo(this).cadastro();
+	}
+	
 	@Get("/meusPlanos")
 	public void meusPlanos(){
 		List<PlanoDeRiscos> planos = planoDeRiscoDao.findMyPlanos(jogadorSession.getJogador().getId());
@@ -74,7 +92,7 @@ public class ProfessorController {
 	
 	@Get("/plano/new")
 	public void formularioPlanoDeRisco(){
-		result.include("projetos", projetoDao.findAll()).include("riscos", riscoDao.find());
+		result.include("projetos", projetoDao.findAll()).include("riscos", riscoDao.find()).include("fases", faseDao.findAll());
 	}
 
 	@Get("/plano/{planoId}/edit")
@@ -85,7 +103,23 @@ public class ProfessorController {
 
 	@Post("/plano")
 	public void savePlano(PlanoDeRiscos planoDeRiscos){
+		List<AnaliseDeRisco> analiseDeRiscos = planoDeRiscos.getAnalisesDeRiscos();
+
+		for (AnaliseDeRisco analiseDeRisco : analiseDeRiscos) {
+			AnaliseAcaoEstrategica analiseAcaoEstrategica =  analiseDeRisco.getAnaliseAcoesEstrategicas().get(0);
+			analiseAcaoEstrategicaDao.save(analiseAcaoEstrategica.getEstrategia());
+			List<AnaliseAcaoEstrategica> analises = analiseDeRisco.getAnaliseAcoesEstrategicas();
+			for (AnaliseAcaoEstrategica analise : analises) {
+				analise.setAnalise(analiseDeRisco);
+				analise.setEstrategia(analiseAcaoEstrategica.getEstrategia());
+			}
+			analiseDeRisco.setAnaliseAcoesEstrategicas(analises);
+		}
+		
+		planoDeRiscos.setAnalisesDeRiscos(analiseDeRiscos);
+		
 		planoDeRiscos.setUsuario(jogadorSession.getJogador());
+		
 		planoDeRiscoDao.save(planoDeRiscos);
 		result.redirectTo(this).meusPlanos();
 	}

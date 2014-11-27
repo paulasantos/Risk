@@ -98,6 +98,11 @@ public class Projeto {
 	public void setOrcamento(Double orcamento) {
 		this.orcamento = orcamento;
 	}
+	
+	public void setOrcamentoMoney(String orcamento) {
+		orcamento = orcamento.replace("R$", "").replace(".", "").replace(",", ".");
+		this.orcamento = Double.parseDouble(orcamento);
+	}
 
 	public Double getCronograma() {
 		return cronograma;
