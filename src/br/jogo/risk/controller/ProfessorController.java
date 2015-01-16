@@ -9,7 +9,6 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
-import br.jogo.risk.dao.AnaliseAcaoEstrategicaDao;
 import br.jogo.risk.dao.FaseDao;
 import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.dao.ProjetoDao;
@@ -31,17 +30,14 @@ public class ProfessorController {
 	private PlanoDeRiscoDao planoDeRiscoDao;
 	private UsuarioSession jogadorSession;
 	private FaseDao faseDao;
-	private AnaliseAcaoEstrategicaDao analiseAcaoEstrategicaDao;
 
-	public ProfessorController(Result result, ProjetoDao projetoDao, RiscoDao riscoDao, PlanoDeRiscoDao planoDeRiscoDao, FaseDao faseDao, AnaliseAcaoEstrategicaDao acaoEstrategicaDao,
-			UsuarioSession jogadorSession) {
+	public ProfessorController(Result result, ProjetoDao projetoDao, RiscoDao riscoDao, PlanoDeRiscoDao planoDeRiscoDao, FaseDao faseDao, UsuarioSession jogadorSession) {
 		this.result = result;
 		this.projetoDao = projetoDao;
 		this.riscoDao = riscoDao;
 		this.planoDeRiscoDao = planoDeRiscoDao;
 		this.jogadorSession = jogadorSession;
 		this.faseDao = faseDao;
-		this.analiseAcaoEstrategicaDao = acaoEstrategicaDao;
 	}
 	
 	@Get({"", "/"})
@@ -103,27 +99,13 @@ public class ProfessorController {
 
 	@Post("/plano")
 	public void savePlano(PlanoDeRiscos planoDeRiscos){
-		List<AnaliseDeRisco> analiseDeRiscos = planoDeRiscos.getAnalisesDeRiscos();
-
-		for (AnaliseDeRisco analiseDeRisco : analiseDeRiscos) {
-			List<AcaoEstrategica> analisesAcoesEstrategicas = analiseDeRisco.getAcoesEstrategicas();
-			if(analisesAcoesEstrategicas != null)
-				for (AcaoEstrategica analiseAcaoEstrategica : analisesAcoesEstrategicas) {
-					if(analiseAcaoEstrategica != null)
-//					analiseAcaoEstrategicaDao.save(analiseAcaoEstrategica.getEstrategia());
-					analiseAcaoEstrategica.setAnaliseDeRisco(analiseDeRisco);
-//					analiseAcaoEstrategica.setEstrategia(analiseAcaoEstrategica.getEstrategia());
-				}
-//			analiseDeRisco.setAnaliseAcoesEstrategicas(analisesAcoesEstrategicas);
-		}
-		
-		planoDeRiscos.setAnalisesDeRiscos(analiseDeRiscos);		
+		planoDeRiscos = formatarPlanoDeRiscos(planoDeRiscos);
 		planoDeRiscos.setUsuario(jogadorSession.getJogador());
 		planoDeRiscoDao.save(planoDeRiscos);
 		
 		result.redirectTo(this).meusPlanos();
 	}
-	
+
 	@Put("/plano")
 	public void updatePlano(PlanoDeRiscos planoDeRiscos){
 		planoDeRiscoDao.update(planoDeRiscos);
@@ -139,4 +121,21 @@ public class ProfessorController {
 	public void planosCompartilhados(){
 		planoDeRiscoDao.findPlanosCompartilhados();
 	}
+
+	private PlanoDeRiscos formatarPlanoDeRiscos(PlanoDeRiscos planoDeRiscos) {
+		List<AnaliseDeRisco> analisesDeRiscos = planoDeRiscos.getAnalisesDeRiscos();
+
+		for (AnaliseDeRisco analiseDeRisco : analisesDeRiscos) {
+			analiseDeRisco.setPlanoDeRiscos(planoDeRiscos);
+			List<AcaoEstrategica> acoesEstrategicas = analiseDeRisco.getAcoesEstrategicas();
+			for (AcaoEstrategica acaoEstrategica : acoesEstrategicas) {
+				acaoEstrategica.setAnaliseDeRisco(analiseDeRisco);
+			}
+		}
+		
+		planoDeRiscos.setAnalisesDeRiscos(analisesDeRiscos);
+		
+		return planoDeRiscos;
+	}
+
 }
