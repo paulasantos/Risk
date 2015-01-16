@@ -15,7 +15,7 @@ import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.dao.ProjetoDao;
 import br.jogo.risk.dao.RiscoDao;
 import br.jogo.risk.dao.UsuarioSession;
-import br.jogo.risk.model.AnaliseAcaoEstrategica;
+import br.jogo.risk.model.AcaoEstrategica;
 import br.jogo.risk.model.AnaliseDeRisco;
 import br.jogo.risk.model.PlanoDeRiscos;
 import br.jogo.risk.model.Projeto;
@@ -106,21 +106,21 @@ public class ProfessorController {
 		List<AnaliseDeRisco> analiseDeRiscos = planoDeRiscos.getAnalisesDeRiscos();
 
 		for (AnaliseDeRisco analiseDeRisco : analiseDeRiscos) {
-			AnaliseAcaoEstrategica analiseAcaoEstrategica =  analiseDeRisco.getAnaliseAcoesEstrategicas().get(0);
-			analiseAcaoEstrategicaDao.save(analiseAcaoEstrategica.getEstrategia());
-			List<AnaliseAcaoEstrategica> analises = analiseDeRisco.getAnaliseAcoesEstrategicas();
-			for (AnaliseAcaoEstrategica analise : analises) {
-				analise.setAnalise(analiseDeRisco);
-				analise.setEstrategia(analiseAcaoEstrategica.getEstrategia());
-			}
-			analiseDeRisco.setAnaliseAcoesEstrategicas(analises);
+			List<AcaoEstrategica> analisesAcoesEstrategicas = analiseDeRisco.getAcoesEstrategicas();
+			if(analisesAcoesEstrategicas != null)
+				for (AcaoEstrategica analiseAcaoEstrategica : analisesAcoesEstrategicas) {
+					if(analiseAcaoEstrategica != null)
+//					analiseAcaoEstrategicaDao.save(analiseAcaoEstrategica.getEstrategia());
+					analiseAcaoEstrategica.setAnaliseDeRisco(analiseDeRisco);
+//					analiseAcaoEstrategica.setEstrategia(analiseAcaoEstrategica.getEstrategia());
+				}
+//			analiseDeRisco.setAnaliseAcoesEstrategicas(analisesAcoesEstrategicas);
 		}
 		
-		planoDeRiscos.setAnalisesDeRiscos(analiseDeRiscos);
-		
+		planoDeRiscos.setAnalisesDeRiscos(analiseDeRiscos);		
 		planoDeRiscos.setUsuario(jogadorSession.getJogador());
-		
 		planoDeRiscoDao.save(planoDeRiscos);
+		
 		result.redirectTo(this).meusPlanos();
 	}
 	

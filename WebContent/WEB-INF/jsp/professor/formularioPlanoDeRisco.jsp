@@ -235,7 +235,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Ação de Resposta</label>
 									    		<div class="col-sm-10 risco-acao-options">
-													<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[0].estrategia.descricao"
+													<input type="text" name="planoDeRiscos.analisesDeRiscos[0].analiseAcoesEstrategicas[0].estrategia.descricao" class="form-control" 
 														value="Promover treinamento da equipe sobre gerenciamento de projetos">
 												</div>
 											</div>
@@ -243,7 +243,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Fase de Realização</label>
 									    		<div class="col-sm-10 risco-acao-options">
-											    	<select id="faseId" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[1].faseDeRealizacao.id" class="required form-control">
+											    	<select id="faseId" name="planoDeRiscos.analisesDeRiscos[0].analiseAcoesEstrategicas[0].faseDeRealizacao.id" class="required form-control">
 														<option value="0">Escolha a fase de aplicação da ação...</option>
 														<c:forEach items= "${fases}" var="fase">
 															<option value="${fase.id}"> ${fase.nome} </option>
@@ -254,7 +254,7 @@
 											<div class="form-group">
 												<label class="col-sm-2 control-label">Custo</label>
 									    		<div class="col-sm-10 risco-acao-options">
-													<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRiscos.analisesDeRiscos[1].analiseAcoesEstrategicas[0].custo" value="">
+													<input type="text" id="valorAcaoEstrategica" name="planoDeRiscos.analisesDeRiscos[0].analiseAcoesEstrategicas[0].custo" value="" class="form-control">
 												</div>
 											</div>							
 						  				</div>

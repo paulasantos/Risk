@@ -1,26 +1,31 @@
 package br.jogo.risk.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="sequence", sequenceName="acaoestrategica_sequence", allocationSize=1)
+@SequenceGenerator(name="sequence", sequenceName="analiseacaoestrategica_sequence", allocationSize=1)
 public class AcaoEstrategica {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
 	private Long id;
 	
-	private String descricao;
+	private String acaoEstrategica;
+
+	@ManyToOne
+	private AnaliseDeRisco analiseDeRisco;
 	
-	@OneToMany(mappedBy="estrategia")
-	private List<AnaliseAcaoEstrategica> analiseAcoes;
-		
+	@ManyToOne
+	private Fase faseDeRealizacao;
+	
+	private String responsaveis;
+	
+	private Double custo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -29,19 +34,43 @@ public class AcaoEstrategica {
 		this.id = id;
 	}
 
-	public String getDescricao() {
-		return descricao;
+	public Fase getFaseDeRealizacao() {
+		return faseDeRealizacao;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setFaseDeRealizacao(Fase faseDeRealizacao) {
+		this.faseDeRealizacao = faseDeRealizacao;
 	}
 
-	public List<AnaliseAcaoEstrategica> getAnaliseAcoes() {
-		return analiseAcoes;
+	public String getResponsaveis() {
+		return responsaveis;
 	}
 
-	public void setAnaliseAcoes(List<AnaliseAcaoEstrategica> analiseAcoes) {
-		this.analiseAcoes = analiseAcoes;
+	public void setResponsaveis(String responsaveis) {
+		this.responsaveis = responsaveis;
+	}
+
+	public Double getCusto() {
+		return custo;
+	}
+
+	public void setCusto(Double custo) {
+		this.custo = custo;
+	}
+
+	public String getAcaoEstrategica() {
+		return acaoEstrategica;
+	}
+
+	public void setAcaoEstrategica(String acaoEstrategica) {
+		this.acaoEstrategica = acaoEstrategica;
+	}
+
+	public AnaliseDeRisco getAnaliseDeRisco() {
+		return analiseDeRisco;
+	}
+
+	public void setAnaliseDeRisco(AnaliseDeRisco analiseDeRisco) {
+		this.analiseDeRisco = analiseDeRisco;
 	}
 }

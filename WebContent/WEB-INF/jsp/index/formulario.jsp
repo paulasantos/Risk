@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../index/header.jsp" />
 <link rel="stylesheet" type="text/css" href="/risk/stylesheets/login.css">
@@ -59,8 +60,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#usuarioLogin").after("<span class='alert-message alert success'><i class='fa fa-check-circle'></i>Login disponível.</span>")
-			.after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login indisponível.</span>")
+		$("#usuarioLogin").after("<span class='alert-message alert success'><i class='fa fa-check-circle'></i>Login disponÃ­vel.</span>")
+			.after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login indisponÃ­vel.</span>")
 			.after("<span class='alert-message info'><i class='fa fa-info-circle'></i>Digite um Login para ser pesquisado.</span>");
 					
 		$(".alert-message").hide();

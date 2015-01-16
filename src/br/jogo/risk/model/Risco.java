@@ -19,9 +19,6 @@ public class Risco {
 	private String descricao;
 		
 	@ManyToOne
-	private Projeto projeto;
-	
-	@ManyToOne
 	private Categoria categoria;
 
 	public Long getId() {
@@ -38,14 +35,6 @@ public class Risco {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	}
-
-	public Projeto getProjeto() {
-		return projeto;
-	}
-
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
 	}
 
 	public Categoria getCategoria() {

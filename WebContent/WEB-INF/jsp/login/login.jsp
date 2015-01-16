@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="../index/header.jsp" />
 <link rel="stylesheet" type="text/css" href="/risk/stylesheets/login.css">
@@ -13,7 +14,7 @@
 		<form id="loginForm" class="form account-form" action="<c:url value="/efetuarLogin"/>"  method="post">
 		
         	<div class="form-group">
-        		<input type="text" class="form-control" id="login-username" placeholder="Usuário" name="usuario.login"/>
+        		<input type="text" class="form-control" id="login-username" placeholder="UsuÃ¡rio" name="usuario.login"/>
         	</div>
 
         	<div class="form-group">

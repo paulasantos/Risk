@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -14,8 +14,8 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
 				<ul class="nav navbar-nav">
 			    	<li class="active"><a href="/risk/jogo"><i class="fa fa-home fa-fw" style="padding-right: 5px;"></i>Projeto</a></li>
-		       		<li><a href="#">Pontuação</a></li>			
-		       		<li><a href="#">Ajuda Técnica</a></li>
+		       		<li><a href="#">PontuaÃ§Ã£o</a></li>			
+		       		<li><a href="#">Ajuda TÃ©cnica</a></li>
 				</ul>
 			</div>
 		</div>

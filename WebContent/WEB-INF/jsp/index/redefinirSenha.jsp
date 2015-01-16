@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <jsp:include page="../index/header.jsp" />
@@ -36,7 +37,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#usuarioLogin").after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login n„o encontrato, verifique seu login ou efetue seu cadastro.</span>")
+		$("#usuarioLogin").after("<span class='alert-message error'><i class='fa fa-times-circle'></i>Login n√£o encontrato, verifique seu login ou efetue seu cadastro.</span>")
 			.after("<span class='alert-message info'><i class='fa fa-info-circle'></i>Digite um Login para ser pesquisado.</span>")
 			.after("<span class='alert-message success'><i class='fa fa-check-circle'></i>Login encontrado.</span>");
 					

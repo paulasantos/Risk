@@ -31,7 +31,13 @@ public class Projeto {
 	
 	@OneToMany(mappedBy="projeto")
 	private List<Jogo> jogos;
-	
+
+	@ManyToOne 
+	private Usuario professor;
+
+	@ManyToOne
+	private Fase fase;
+
 	private Double orcamento;
 	
 	private Double cronograma;
@@ -39,9 +45,6 @@ public class Projeto {
 	private Integer qtdMembros;
 
 	private Character tipo;
-	
-	@ManyToOne 
-	private Usuario professor;
 	
 	public Long getId() {
 		return id;
@@ -74,7 +77,7 @@ public class Projeto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-		
+
 	public List<PlanoDeRiscos> getPlanoDeRiscos() {
 		return planoDeRiscos;
 	}
@@ -89,6 +92,22 @@ public class Projeto {
 
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
+	}
+
+	public Usuario getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Usuario professor) {
+		this.professor = professor;
+	}
+
+	public Fase getFase() {
+		return fase;
+	}
+
+	public void setFase(Fase fase) {
+		this.fase = fase;
 	}
 
 	public Double getOrcamento() {
@@ -128,11 +147,4 @@ public class Projeto {
 		this.tipo = tipo;
 	}
 
-	public Usuario getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Usuario professor) {
-		this.professor = professor;
-	}
 }

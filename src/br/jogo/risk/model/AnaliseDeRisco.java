@@ -35,8 +35,8 @@ public class AnaliseDeRisco {
 	@ManyToOne
 	private PlanoDeRiscos planoDeRiscos;
 	
-	@OneToMany(mappedBy="analise", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas;
+	@OneToMany(mappedBy="analiseDeRisco", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AcaoEstrategica> acoesEstrategicas;
 
 	public Long getId() {
 		return id;
@@ -94,18 +94,19 @@ public class AnaliseDeRisco {
 		this.planoDeRiscos = planoDeRiscos;
 	}
 
-	public List<AnaliseAcaoEstrategica> getAnaliseAcoesEstrategicas() {
-		return analiseAcoesEstrategicas;
-	}
-
-	public void setAnaliseAcoesEstrategicas(List<AnaliseAcaoEstrategica> analiseAcoesEstrategicas) {
-		this.analiseAcoesEstrategicas = analiseAcoesEstrategicas;
-	}
 	public Character getTipo() {
 		return tipo;
 	}
 
 	public void setTipo(Character tipo) {
 		this.tipo = tipo;
+	}
+
+	public List<AcaoEstrategica> getAcoesEstrategicas() {
+		return acoesEstrategicas;
+	}
+
+	public void setAcoesEstrategicas(List<AcaoEstrategica> acoesEstrategicas) {
+		this.acoesEstrategicas = acoesEstrategicas;
 	}
 }

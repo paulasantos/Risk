@@ -14,12 +14,15 @@ import javax.persistence.SequenceGenerator;
 public class Fase {
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO, generator="sequence")
-	public Long id;
+	private Long id;
 	
-	public String nome;
+	private String nome;
 
 	@OneToMany(mappedBy="faseDeRealizacao")
-	public List<AnaliseAcaoEstrategica> analiseAcaoEstrategicas;
+	private List<AcaoEstrategica> acoesEstrategicas;
+	
+	@OneToMany(mappedBy="fase")
+	private List<Projeto> projetos;
 	
 	public Long getId() {
 		return id;
@@ -37,12 +40,12 @@ public class Fase {
 		this.nome = nome;
 	}
 
-	public List<AnaliseAcaoEstrategica> getAnaliseAcaoEstrategicas() {
-		return analiseAcaoEstrategicas;
+	public List<AcaoEstrategica> getAcoesEstrategicas() {
+		return acoesEstrategicas;
 	}
 
-	public void setAnaliseAcaoEstrategicas(
-			List<AnaliseAcaoEstrategica> analiseAcaoEstrategicas) {
-		this.analiseAcaoEstrategicas = analiseAcaoEstrategicas;
+	public void setAcoesEstrategicas(
+			List<AcaoEstrategica> analiseAcaoEstrategicas) {
+		this.acoesEstrategicas = analiseAcaoEstrategicas;
 	}
 }
