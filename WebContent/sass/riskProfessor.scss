@@ -7,23 +7,28 @@
 		.navbar-brand {
 			color: white !important;
 		}
-		.navbar-nav{
-			li {
-				a{
-					color: white;
-				}
+		.navbar-nav > li > a {
+			color: white;
+		}
+		dropdown-menu ul li{
+			a{
+				color: black;
 			}
 		}
 	}
 }
+
 .content{
 	width: 950px; 
 	height: auto;
+	margin-top: -13px;
 	
 	.box-big{
-		margin-top: 10px; 
+		margin-left: 200px;
 		margin-bottom: 20px;
-		
+		width: 950px;
+		border: rgb(200, 245, 245) solid 1px;
+						
 		.box-title{
 			width: 100%;
 			padding: 8px;
@@ -39,7 +44,7 @@
 			font-weight: normal !important;
 			.gravar-plano{
 				margin-left: 30px;
-				margin-top: -15px
+				margin-top: -15px;
 			}
 			.note-editor{
 				.btn-small{
@@ -51,6 +56,15 @@
 	.dropdown-toggle{
 		padding-bottom: 0px;
 	}
+	.btn-editar {
+		cursor: pointer;
+	}
+	
+	#acoes{
+		a:hover, a:focus{
+		text-decoration: none !important;
+		}
+	}
 }
 
 .control-label{
@@ -58,7 +72,8 @@
 }
 
 #divGravar {
-	margin-left: 30px
+	margin-left: 30px;
+	margin-bottom: 10px;
 }
 
 .riscos{
@@ -115,8 +130,3 @@
 			margin: 20px 0 10px 10px;
 	}
 }
-
-
-
-
-

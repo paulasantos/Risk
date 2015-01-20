@@ -8,10 +8,10 @@
 
 <script type="text/javascript" src="/risk/js/risk/jogo.js"></script>
 
-<form id="formDelete" action="<c:url value="/professores/projeto/delete/?"/>" method="DELETE"
-	<input type="hidden" name="_method" value="DELETE" />
-</form>
 <div class="content">
+	<form id="formDelete" method="post" action="<c:url value='/professores/projeto/delete/?'/>">
+		<input type="hidden" name="_method" value="DELETE" />
+	</form>
 	<div id="form-action" >
 		<a class="list-group-item" id="novoprojeto" href="<c:url value='/professores/projeto/new'/>"
 		style="color: rgb(12, 234, 32);font-size: 15px;background: seagreen;"> <i class="fa fa-plus-circle fa-fw"> </i>&nbsp; Novo Projeto</a>
@@ -20,29 +20,27 @@
 		<table class="table table-bordered" style="width: 98%; margin: 0 auto;">
 			<thead>
 				<tr>
-					<th  width=10% class="acoes">Ações</th>
+					<th  width=9% class="acoes">Ações</th>
 				    <th> Projeto</th>
 					<th>Orçamento</th>
 					<th>Cronograma</th>
 				</tr>
 			</thead>
-			<tbody class="content">
+			<tbody>
 				<c:forEach items="${projetos}" var="projeto">
 					<tr projetoid="${projeto.id}">
 						<td id="acoes" class="center">	
-		  					<a  href="<c:url value='/professores/projeto/new'/>">
-								<i class="fa fa-file-text" title="Plano de Risco"></i>
-							</a> 
-							<a  href="<c:url value='/professores/projeto/${projeto.id}/edit'/>" style="margin: 0 4px 0px 4px;font-size: 19px;">
-								<i class="fa fa-pencil-square-o" title="Editar"></i>
-							</a>
-							<a class="btnEditar" onclick="removerProjeto()">
-								<i class="fa fa-trash-o" title="Remover"></i>
-							</a>
-							<form id="formDelete" action="<c:url value="/professores/projeto/delete/${projeto.id}"/>" method="POST"
-								style="width: auto; float: right; height: auto; margin-top: -3px; margin-bottom: 0px;">
-								<button type="submit" name="_method" value="DELETE" class="btn-link"><i class="fa fa-trash-o" title="Remover"></i></button>
-		  					</form>
+							<div>
+								<a class="btn-editar" onclick="remover(${projeto.id})">
+									<i class="fa fa-trash-o" title="Remover" style="font-size: 19px; margin-left: -2px;"></i>
+								</a>
+								<a  href="<c:url value='/professores/projeto/${projeto.id}/edit'/>" style="vertical-align: middle;">
+									<i class="fa fa-pencil-square-o" title="Editar" style="font-size: 19px;margin-left: -2px"></i>
+								</a>
+			  					<a  href="<c:url value='/professores/projeto/new'/>">
+									<i class="fa fa-file-text" title="Plano de Risco" style="font-size: 16px;margin-left: -2px""></i>
+								</a> 
+							</div>
 						</td>
 	
 						<td class="center"> <a href="<c:url value='/professores/${projeto.id}/show'/>"> ${projeto.nome} </a> </td>
@@ -54,15 +52,11 @@
 		</table>
 	</div>
 <script>
-$(function() {
-	function removerProjeto() {
-	console.log("oi");
-		var $form = $("formDelete"); 	
-		$form = $("#formDeleteUsuario");
-			var novaActionDelete = $form.attr("action").replace("/?", "/"+ id);
-			$form.attr("action", novaActionDelete);	  
-			$form.submit();		
-  	};
-});	
+function remover(id){
+	var $form = $("#formDelete"); 	
+	var novaActionDelete = $form.attr("action").replace("/?", "/"+id);
+	$form.attr("action", novaActionDelete);	  
+	$form.submit();		
+ };
 </script>
 </div>

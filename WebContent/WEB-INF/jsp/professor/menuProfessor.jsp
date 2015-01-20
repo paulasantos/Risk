@@ -18,13 +18,6 @@
 			            <li><a href="/risk/professores/projetosCompartilhados">Projetos compartilhados</a></li>
 			          </ul>
 			        </li>
-		       		<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Plano de Riscos <span class="caret"></span></a>
-			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="/risk/professores/meusPlanos">Meus Planos de Riscos</a></li>
-			            <li><a href="/risk/professor/projetosCompartilhados">Projetos compartilhados</a></li>
-			          </ul>
-			        </li>
 		       		<li><a href="/risk/professores/resultados">Resultados</a></li>
 				</ul>
 			</div>
