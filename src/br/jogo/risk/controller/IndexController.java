@@ -68,4 +68,12 @@ public class IndexController {
 	public void verificarDisponibilidade(String login){
 		result.use(json()).from(usuarioDao.verificarDisponibilidade(login)).serialize();
 	}
+	
+	@Get("/sair")
+	public void sair(){
+		if(usuarioSession != null && usuarioSession.getJogador() != null){
+			usuarioSession.setUsuario(null);
+		}
+		result.redirectTo(LoginController.class).login();	
+	}
 }

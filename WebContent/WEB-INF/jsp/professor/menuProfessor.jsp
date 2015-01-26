@@ -19,6 +19,7 @@
 			          </ul>
 			        </li>
 		       		<li><a href="/risk/professores/resultados">Resultados</a></li>
+		       		<li><a href="/risk/sair">Sair</a></li>
 				</ul>
 			</div>
 		</div>

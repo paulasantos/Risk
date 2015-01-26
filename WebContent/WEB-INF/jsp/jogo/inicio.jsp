@@ -18,6 +18,7 @@
 			    	<li class="active"><a href="/risk/jogo"><i class="fa fa-home fa-fw" style="padding-right: 5px;"></i>Selecionar Projeto</a></li>
 		       		<li><a href="#">Pontuação</a></li>			
 		       		<li><a href="#">Sobre</a></li>
+		       		<li><a href="/risk/sair">Sair</a></li>
 				</ul>
 			</div>
 		</div>
@@ -26,7 +27,7 @@
 
 <div id="content" class="content">
 	<div class="fotoSobre">
-		<img class="foto" src="<c:url value='/imagens/prof.png'/>" width="430" height="203" />
+		<img class="foto" src="<c:url value='/images/prof.png'/>" width="430" height="203" />
 	</div>
 
 <div class="selectProjet">

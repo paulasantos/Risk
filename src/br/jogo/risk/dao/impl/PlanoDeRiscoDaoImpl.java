@@ -2,6 +2,7 @@ package br.jogo.risk.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,8 @@ public class PlanoDeRiscoDaoImpl extends GenericDaoImpl implements PlanoDeRiscoD
 		.add(Restrictions.eq("p.id", projetoId))
 		.add(Restrictions.eq("j.id", jogoId))
 		.add(Restrictions.eq("j.status", StatusJogo.INICIADO.getStatus()))
+		.addOrder(Order.asc("pr.id"))
+		.setMaxResults(1)
 		.uniqueResult();
 	}
 

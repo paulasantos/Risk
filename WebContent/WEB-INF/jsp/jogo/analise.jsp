@@ -72,7 +72,7 @@
 			</div>
 		</div>
 		<div class="form-group table-responsive" style="margin-left: -30px !important">
-			<label for="acaoResposta" class="col-sm-2 control-label" style="font-weight: normal;">Ação de Resposta</label>
+			<label for="acaoResposta" class="col-sm-2 control-label" style="font-weight: normal;">Ação de resposta ao risco</label>
 			<div class="col-sm-10" style="padding-right: 50px !important;">
 				<table class="table table-bordered" style="font-size: 14px; text-align: center;">
 					<thead>

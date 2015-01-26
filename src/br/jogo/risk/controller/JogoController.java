@@ -73,12 +73,17 @@ public class JogoController {
 	
 	@Get("/jogar")
 	public void jogar(Projeto projeto, Jogo jogo) {
-		List<Risco> riscos = riscoDao.find();		
-		PlanoDeRiscos planoDeRiscos = planoDeRiscoDao.findByProjetoAndJogo(projeto.getId(), jogo.getId());
 		
-		result.include("projeto", projetoDao.find(jogo.getProjeto().getId())).
-		include("riscos", riscos).
-		include("planoDeRiscos",planoDeRiscos);
+		if(projeto!= null && jogo != null){
+			PlanoDeRiscos planoDeRiscos = planoDeRiscoDao.findByProjetoAndJogo(projeto.getId(), jogo.getId());
+			List<Risco> riscos = riscoDao.find();		
+			
+			result.include("projeto", projetoDao.find(jogo.getProjeto().getId())).
+			include("riscos", riscos).
+			include("planoDeRiscos",planoDeRiscos);
+		}
+		else
+			result.redirectTo(this).inicio();
 	}
 	
 	@Post("/riscos")

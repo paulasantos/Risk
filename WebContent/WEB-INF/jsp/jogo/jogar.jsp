@@ -28,6 +28,7 @@
 						<c:forEach items="${riscos}" var="risco">
 							<div style="padding: 1px;">
 								<input type="checkbox"  name="planoDeRiscos.analisesDeRiscos[].risco.id" value="${risco.id}"> ${risco.descricao}
+								<input type="hidden"  name="planoDeRiscos.analisesDeRiscos[].risco.descricao" value="${risco.descricao}">
 							</div> 
 						</c:forEach>
 			</form>

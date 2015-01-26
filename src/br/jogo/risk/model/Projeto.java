@@ -38,9 +38,9 @@ public class Projeto {
 	@ManyToOne
 	private Fase fase;
 
-	private Double orcamento;
+	private String orcamento;
 	
-	private Double cronograma;
+	private Integer cronograma;
 	
 	private Integer qtdMembros;
 
@@ -110,24 +110,19 @@ public class Projeto {
 		this.fase = fase;
 	}
 
-	public Double getOrcamento() {
+	public String getOrcamento() {
 		return orcamento;
 	}
 
-	public void setOrcamento(Double orcamento) {
+	public void setOrcamento(String orcamento) {
 		this.orcamento = orcamento;
 	}
 	
-	public void setOrcamentoMoney(String orcamento) {
-		orcamento = orcamento.replace("R$", "").replace(".", "").replace(",", ".");
-		this.orcamento = Double.parseDouble(orcamento);
-	}
-
-	public Double getCronograma() {
+	public Integer getCronograma() {
 		return cronograma;
 	}
 
-	public void setCronograma(Double cronograma) {
+	public void setCronograma(Integer cronograma) {
 		this.cronograma = cronograma;
 	}
 
