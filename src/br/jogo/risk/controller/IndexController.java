@@ -48,7 +48,7 @@ public class IndexController {
 		if(usuario.getPerfil().getNome().equals(Perfil.JOGADOR.getPerfil()))
 			result.redirectTo(JogoController.class).inicio();
 		else
-			result.redirectTo(ProfessorController.class).cadastro();
+			result.redirectTo(ProfessorController.class).projetos();
 	}
 
 	@Post("/atualizarSenha")
@@ -61,7 +61,7 @@ public class IndexController {
 		if(usuario.getPerfil().getNome().equals(Perfil.JOGADOR.getPerfil()))
 			result.redirectTo(JogoController.class).inicio();
 		else
-			result.redirectTo(ProfessorController.class).cadastro();
+			result.redirectTo(ProfessorController.class).projetos();
 	}
 	
 	@Get("/verificarDisponibilidade/{login}")

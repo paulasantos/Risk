@@ -55,7 +55,7 @@ a:hover, a:focus {
 }
 h3:hover { background: beige; }
 h3.open  { background: beige; }
-h3.open a { background-position: 13px -25px; }
+h3.open a { background-position: 13px -25px;ï¿½}
 h3 + div { padding: 10px; }
 h2 + div,
 .example {

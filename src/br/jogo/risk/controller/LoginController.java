@@ -40,7 +40,7 @@ public class LoginController {
 			if(user.getPerfil().getNome().equals(Perfil.JOGADOR.getPerfil()))
 				result.redirectTo(JogoController.class).inicio();
 			else
-				result.redirectTo(ProfessorController.class).cadastro();
+				result.redirectTo(ProfessorController.class).projetos();
 		}
 		else{
 			result.include("message", "Dados incorretos")

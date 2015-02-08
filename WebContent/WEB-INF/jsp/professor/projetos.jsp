@@ -43,8 +43,8 @@
 										<a  href="<c:url value='/professores/projeto/${projeto.id}/edit'/>" style="vertical-align: middle; color: #676a6c;">
 											<i class="fa fa-pencil-square-o" title="Editar" style="font-size: 19px;margin-left: -2px"></i>
 										</a>
-					  					<a  href="<c:url value='/professores/projeto/new'/>" style="color: #676a6c;">
-											<i class="fa fa-file-text" title="Plano de Risco" style="font-size: 16px;margin-left: -2px""></i>
+					  					<a  href="<c:url value='/professores/plano/${projeto.id}'/>" style="color: #676a6c;">
+											<i class="fa fa-file-text" title="Plano de Riscos" style="font-size: 16px;margin-left: -2px""></i>
 										</a> 
 									</div>
 								</td>
@@ -82,8 +82,9 @@ $(document).ready(function() {
 				        	"last":       ">&gt;|",
 				        	"next":       ">>",
 				        	"previous":   "<<"
-			}
-		}
+			}	
+		},
+		"sort":false
     });
 }); 
 </script>

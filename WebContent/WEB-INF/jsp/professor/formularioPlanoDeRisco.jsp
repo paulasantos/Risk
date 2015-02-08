@@ -15,7 +15,7 @@
 <div class="content">
 	<div class="box-big">
 		<div class="box-title">
-			<span>Cadastro</span>
+			<span>Plano de Riscos</span>
 		</div>
 		<div class="box-content" style="margin-left: 65px;">
 			<form id="projetoForm" class="account-form form-horizontal" action="<c:url value="/professores/plano"/>" method="POST">
@@ -25,17 +25,11 @@
 					<input type="hidden" name=planoDeRiscos.usuario.id" value="${planoDeRiscos.usuario.id}">
                   	<input type='hidden' name='_method' value='PUT'/>
 				</c:if>
+				<c:if test="${planoDeRiscos.id == null}">
+					<input type="hidden" name=planoDeRiscos.projeto.id" value="${projeto.id}">
+				</c:if>
 
-		    	<select id="projetoId" name="planoDeRiscos.projeto.id" class="required form-control">
-					<option value="0">Escolha um Projeto...</option>
-					<c:forEach items= "${projetos}" var="projeto">
-						<option value="${projeto.id}"> ${projeto.nome} </option>
-					</c:forEach>
-				</select>	
-				<div class="riscos">
-					<div class="riscos-box-title">
-						<span>Riscos</span>
-					</div>
+		    	<div class="riscos">
 					<c:if test="${planoDeRiscos.id != null}">
 						<div data-collapse="accordion persist" class="more-risco">
 	 						<c:forEach items="${planoDeRiscos.analisesDeRiscos}" var="analiseDoRisco" varStatus="countRiscos"> 
@@ -234,7 +228,7 @@
 												<label class="col-sm-2 control-label">Ação de Resposta</label>
 									    		<div class="col-sm-10 risco-acao-options">
 													<input type="text" name="planoDeRiscos.analisesDeRiscos[0].acoesEstrategicas[0].acaoEstrategica" class="form-control" 
-														value="Promover treinamento da equipe sobre gerenciamento de projetos">
+														value="">
 												</div>
 											</div>
 											
@@ -312,7 +306,7 @@ $(function() {
 												 '<div class="remove-acao"> <button type="button" class="btn delete-acao" title="Remover"><i class="fa fa-trash"></i></button></div>'+
 												 '<div class="form-group"> <label class="col-sm-2 control-label">Ação de Resposta</label>'+
 													'<div class="col-sm-10 risco-acao-options">'+ 
-														'<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[].acoesEstrategicas[].acaoEstrategica" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
+														'<input type="text" class="form-control" name="planoDeRisco.analisesDeRiscos[].acoesEstrategicas[].acaoEstrategica" value="">'+
 													'</div>'+
 												'</div>'+
 											
@@ -397,7 +391,7 @@ $(function() {
 							  						'				<div class="remove-acao"> <button type="button" class="btn delete-acao" title="Remover"><i class="fa fa-trash"></i></button></div>'+
 													'				<div class="form-group"><label class="col-sm-2 control-label">Ação de Resposta</label>'+
 									    			'					<div class="col-sm-10 risco-acao-options">'+
-													'						<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].acoesEstrategicas[].acaoEstrategica" value="Promover treinamento da equipe sobre gerenciamento de projetos">'+
+													'						<input type="text" class="form-control" name="planoDeRiscos.analisesDeRiscos['+riscoSize+'].acoesEstrategicas[].acaoEstrategica" value="">'+
 													'					</div>'+
 													'				</div>'+
 													'				<div class="form-group"> <label class="col-sm-2 control-label">Fase de Realização</label>'+

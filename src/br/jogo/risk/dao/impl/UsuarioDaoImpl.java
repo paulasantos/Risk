@@ -1,5 +1,7 @@
 package br.jogo.risk.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
@@ -12,6 +14,7 @@ import br.jogo.risk.model.Usuario;
 @Component
 @RequestScoped
 public class UsuarioDaoImpl extends GenericDaoImpl implements UsuarioDao{
+	
 	@Override
 	public boolean jogadorExist(Long usuarioId) {
 		Criteria criteria = getSession().createCriteria(Usuario.class, "u")
@@ -44,5 +47,13 @@ public class UsuarioDaoImpl extends GenericDaoImpl implements UsuarioDao{
         query.setString("login",jogador.getLogin());
 
         query.executeUpdate();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Usuario> findAllJogadores() {
+		Criteria criteria = getSession().createCriteria(Usuario.class, "u");
+		criteria.add(Restrictions.eq("u.perfil.id", 1L));
+		return criteria.list() ;
 	}
 }

@@ -31,6 +31,9 @@ public class Projeto {
 	
 	@OneToMany(mappedBy="projeto")
 	private List<Jogo> jogos;
+	
+	@OneToMany(mappedBy="projeto")
+	private List<Turma> turmas;
 
 	@ManyToOne 
 	private Usuario professor;
@@ -92,6 +95,14 @@ public class Projeto {
 
 	public void setJogos(List<Jogo> jogos) {
 		this.jogos = jogos;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
 	}
 
 	public Usuario getProfessor() {
