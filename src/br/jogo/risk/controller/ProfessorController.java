@@ -122,10 +122,8 @@ public class ProfessorController {
 	}
 
 	@Get("/turma/alunos/{turmaId}")
-	public void turmaAlunos(Long turmaId){
-		
+	public void turmaAdicionarAlunos(Long turmaId){
 	}
-	
 	
 	@Get("/plano/new")
 	public void formularioPlanoDeRisco(){

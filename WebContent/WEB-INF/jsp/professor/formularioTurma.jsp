@@ -21,13 +21,13 @@
 				</c:if>
 				
 				<div class="form-group">
-				    <label for="turmaName" class="col-sm-2 control-label">Nome</label>
+				    <label for="turmaNome" class="col-sm-2 control-label">Nome</label>
 				    <div class="col-sm-10">
 			      		<input type="text" class="form-control required" id="turmaNome" name="turma.nome" value="${turma.nome}" >
 				    </div>
 			  	</div>
 				<div class="form-group">
-				    <label for="turmaResumo" class="col-sm-2 control-label">Projeto</label>
+				    <label for="turmaProjeto" class="col-sm-2 control-label">Projeto</label>
 				    <div class="col-sm-10">
 						<select id="projetoId" name="turma.projeto.id" class="required form-control" >
 							<option value="0">Escolha um Projeto...</option>

@@ -44,7 +44,6 @@
 										</a>
 									</div>
 								</td>
-			
 								<td style="color: #676a6c;"> ${turma.nome} </a> </td>
 								<td style="color: #676a6c;"> ${turma.projeto.nome}</td>
 							</tr>
