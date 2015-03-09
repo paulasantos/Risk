@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,7 +36,7 @@ public class AnaliseDeRisco {
 	@ManyToOne
 	private PlanoDeRiscos planoDeRiscos;
 	
-	@OneToMany(mappedBy="analiseDeRisco", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="analiseDeRisco", cascade = {CascadeType.ALL}, orphanRemoval = true)
 	private List<AcaoEstrategica> acoesEstrategicas;
 
 	public Long getId() {

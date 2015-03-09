@@ -12,4 +12,8 @@ public interface PlanoDeRiscoDao extends GenericDao {
 
 	public List<PlanoDeRiscos> findMyPlanos(Long professorId);
 
+	public PlanoDeRiscos findByProjetoAndProfessor(Long projetoId, Long professorId);
+	
+	public PlanoDeRiscos findById(Long planoId);
+
 }

@@ -1,5 +1,6 @@
 package br.jogo.risk.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.caelum.vraptor.Delete;
@@ -9,9 +10,12 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
+import br.jogo.risk.dao.AcaoEstrategicaDao;
+import br.jogo.risk.dao.AnaliseDeRiscoDao;
 import br.jogo.risk.dao.FaseDao;
 import br.jogo.risk.dao.PlanoDeRiscoDao;
 import br.jogo.risk.dao.ProjetoDao;
+import br.jogo.risk.dao.RiscoDao;
 import br.jogo.risk.dao.TurmaDao;
 import br.jogo.risk.dao.UsuarioDao;
 import br.jogo.risk.dao.UsuarioSession;
@@ -33,9 +37,12 @@ public class ProfessorController {
 	private UsuarioDao usuarioDao;
 	private PlanoDeRiscoDao planoDeRiscoDao;
 	private UsuarioSession usuarioSession;
+	private AnaliseDeRiscoDao analiseDeRiscoDao;
+	private AcaoEstrategicaDao acaoEstrategicaDao;
+	private RiscoDao riscoDao;
 
 	public ProfessorController(Result result, ProjetoDao projetoDao, PlanoDeRiscoDao planoDeRiscoDao, FaseDao faseDao, UsuarioSession usuarioSession, 
-			UsuarioDao usuarioDao, TurmaDao turmaDao) {
+			UsuarioDao usuarioDao, TurmaDao turmaDao, AcaoEstrategicaDao acaoEstrategicaDao, AnaliseDeRiscoDao analiseDeRiscoDao, RiscoDao riscoDao) {
 		this.result = result;
 		this.projetoDao = projetoDao;
 		this.planoDeRiscoDao = planoDeRiscoDao;
@@ -43,6 +50,9 @@ public class ProfessorController {
 		this.faseDao = faseDao;
 		this.usuarioDao = usuarioDao;
 		this.turmaDao = turmaDao;
+		this.acaoEstrategicaDao = acaoEstrategicaDao;
+		this.analiseDeRiscoDao = analiseDeRiscoDao;
+		this.riscoDao = riscoDao;
 	}
 	
 	@Get({"", "/"})
@@ -131,13 +141,29 @@ public class ProfessorController {
 
 	@Get("/plano/{projetoId}")
 	public void plano(Long projetoId){
-		result.include("projeto", projetoDao.find(projetoId)).include("fases", faseDao.findAll()).redirectTo(this).formularioPlanoDeRisco();
+		PlanoDeRiscos planoDeRiscos = planoDeRiscoDao.findByProjetoAndProfessor(projetoId, usuarioSession.getJogador().getId());
+		if(planoDeRiscos == null)
+			result.include("projeto", projetoDao.find(projetoId)).include("fases", faseDao.findAll()).redirectTo(this).formularioPlanoDeRisco();
+		else
+			result.include("fases", faseDao.findAll()).redirectTo(this).editPlano(planoDeRiscos.getId());
 	}
 	
 	@Get("/plano/{planoId}/edit")
 	public void editPlano(Long planoId) {
-		result.include("projeto", projetoDao.find(planoId))
-		.redirectTo(this).formularioPlanoDeRisco();
+		PlanoDeRiscos planoDeRiscos = planoDeRiscoDao.findById(planoId);
+		List<AnaliseDeRisco> analiseDeRiscosTemp = new ArrayList<AnaliseDeRisco>();
+		
+		for (AnaliseDeRisco analiseDeRisco : planoDeRiscos.getAnalisesDeRiscos()) {
+			List<AcaoEstrategica> acoesEstrategicas = acaoEstrategicaDao.findByAnalise(analiseDeRisco.getId());
+			AnaliseDeRisco analiseDeRiscoTemp = analiseDeRisco;
+			analiseDeRiscoTemp.setAcoesEstrategicas(acoesEstrategicas);
+			analiseDeRiscosTemp.add(analiseDeRiscoTemp);
+		}
+		
+		planoDeRiscos.setAnalisesDeRiscos(analiseDeRiscosTemp);
+
+		result.include("planoDeRiscos", planoDeRiscos)
+		.forwardTo(this).formularioPlanoDeRisco();
 	}
 
 	@Post("/plano")
@@ -151,7 +177,12 @@ public class ProfessorController {
 
 	@Put("/plano")
 	public void updatePlano(PlanoDeRiscos planoDeRiscos){
-		planoDeRiscoDao.update(planoDeRiscos);
+		planoDeRiscos = formatarPlanoDeRiscos(planoDeRiscos);
+		for (AnaliseDeRisco analise : planoDeRiscos.getAnalisesDeRiscos()) {
+			acaoEstrategicaDao.update(analise.getAcoesEstrategicas());
+			riscoDao.update(analise.getRisco());
+			analiseDeRiscoDao.update(analise);
+		}
 		result.redirectTo(this).projetos();
 	}
 	

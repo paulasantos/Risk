@@ -10,8 +10,8 @@
 
 	<form id="riscosForm" action="<c:url value="/jogo/riscos"/>" method="post">
 		<div>
-			<c:forEach items="${planoDeRiscos.riscosAnalisados[]}" var="riscosAnalisados" varStatus="countRiscos">
-				<label name="riscosAnalisados[${countRiscos.count -1}].risco.id"> ${riscosAnalisados[countRiscos.count -1 ].risco.descricao}</label>
+			<c:forEach items="${planoDeRiscos.riscosAnalisados}" var="riscosAnalisados" varStatus="countRiscos">
+				<label name="riscosAnalisados[${countRiscos.count -1}].risco.id"> ${riscosAnalisados[countRiscos.count -1].risco.descricao}</label>
 			</c:forEach>
 		</div>
 	</form>

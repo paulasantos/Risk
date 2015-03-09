@@ -20,21 +20,21 @@
 		<div class="box-content" style="margin-left: 65px;">
 			<form id="projetoForm" class="account-form form-horizontal" action="<c:url value="/professores/plano"/>" method="POST">
 				<c:if test="${planoDeRiscos.id != null}">
-					<input type="hidden" name=planoDeRiscos.id" value="${planoDeRiscos.id}">
-					<input type="hidden" name=planoDeRiscos.projeto.id" value="${planoDeRiscos.projeto.id}">
-					<input type="hidden" name=planoDeRiscos.usuario.id" value="${planoDeRiscos.usuario.id}">
+					<input type="hidden" name="planoDeRiscos.id" value="${planoDeRiscos.id}">
+					<input type="hidden" name="planoDeRiscos.projeto.id" value="${planoDeRiscos.projeto.id}">
+					<input type="hidden" name="planoDeRiscos.usuario.id" value="${planoDeRiscos.usuario.id}">
                   	<input type='hidden' name='_method' value='PUT'/>
 				</c:if>
 				<c:if test="${planoDeRiscos.id == null}">
-					<input type="hidden" name=planoDeRiscos.projeto.id" value="${projeto.id}">
+					<input type="hidden" name="planoDeRiscos.projeto.id" value="${projeto.id}">
 				</c:if>
 
 		    	<div class="riscos">
 					<c:if test="${planoDeRiscos.id != null}">
 						<div data-collapse="accordion persist" class="more-risco">
 	 						<c:forEach items="${planoDeRiscos.analisesDeRiscos}" var="analiseDoRisco" varStatus="countRiscos"> 
-	 							<input type="hidden" name=name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].id" value="${analisesDoRisco[${countRiscos.count-1}].id}">
-	 							<input type="hidden" name=name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].risco.id" value="${analisesDoRisco[${countRiscos.count-1}].id"}">
+	 							<input type="hidden" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].id" value="${analiseDoRisco.id}">
+	 							<input type="hidden" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].risco.id" value="${analiseDoRisco.id}">
 						  		<h4>Risco ${countRiscos.count}</h4>
 								<div class="riscos-content" riscoIndice="${countRiscos.count}">
 									<div class="remove-risco">
@@ -102,9 +102,7 @@
 											<span>Ações de resposta ao risco</span>
 										</div>
 										<div data-collapse="accordion persist" class="acoes">
-											<c:forEach items="${analiseDoRisco.acoesEstrategicas}" var="acoo" varStatus="countAcoes">
-												<input type="hidden" name=name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].
-														analiseAcoesEstrategicas[$countAcoes.count -1}].id" value="${acao}.id}">
+											<c:forEach items="${analiseDoRisco.acoesEstrategicas}" var="acao" varStatus="countAcoes">
 										  		<h4>Ação ${countAcoes.count}</h4>
 									  			<div risco="${countRiscos.count}" class="acao" acaoSize="1">
 									  				<div class="remove-acao">
@@ -135,11 +133,11 @@
 														<label class="col-sm-2 control-label">Custo</label>
 											    		<div class="col-sm-10 risco-acao-options">
 															<input type="text" id="valorAcaoEstrategica" class="form-control" name="planoDeRiscos.
-															analisesDeRiscos[${countRiscos.count-1}].acoesEstrategicas[${countAcoes.count -1}].custo"
-															value="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].acoesEstrategicas[${countAcoes.count -1}].custo">
+															analisesDeRiscos[${countRiscos.count-1}].acoesEstrategicas[${countAcoes.count -1}].custo" value="${acao.custo}">
 														</div>
 													</div>							
 								  				</div>
+								  				<input type="hidden" name="planoDeRiscos.analisesDeRiscos[${countRiscos.count-1}].acoesEstrategicas[${countAcoes.count-1}].id" value="${acao.id}">
 							  				</c:forEach>
 										</div>
 										<button type="button" class="btn add-acao" id="btnGravar"> Adcionar Ação </button>
@@ -500,5 +498,6 @@ $(function() {
 	$(".delete-risco").click(function(){
 			deleteRisco(this);
 	});
+	
 });
 </script>

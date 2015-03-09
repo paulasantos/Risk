@@ -29,6 +29,23 @@ public class PlanoDeRiscoDaoImpl extends GenericDaoImpl implements PlanoDeRiscoD
 		.setMaxResults(1)
 		.uniqueResult();
 	}
+	
+	@Override
+	public PlanoDeRiscos findByProjetoAndProfessor(Long projetoId, Long professorId){
+		return (PlanoDeRiscos) getSession().createCriteria(PlanoDeRiscos.class, "pr")
+		.createCriteria("pr.projeto", "p")
+		.add(Restrictions.eq("p.id", projetoId))
+		.add(Restrictions.eq("p.professor.id", professorId))
+		.uniqueResult();
+	}
+	
+	public PlanoDeRiscos findById(Long planoId){
+		return (PlanoDeRiscos) getSession().createCriteria(PlanoDeRiscos.class, "pr")
+				.createCriteria("pr.analisesDeRiscos", "analise")
+				.createCriteria("analise.acoesEstrategicas", "acoes")
+				.add(Restrictions.eq("pr.id", planoId))
+				.uniqueResult();
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

@@ -12,6 +12,7 @@
                 <property name="hibernate.format_sql">true</property>
                 <property name="org.hibernate.envers.store_data_at_delete">true</property>
                 
+                <mapping class="br.jogo.risk.model.Curso" />
 				<mapping class="br.jogo.risk.model.Usuario" />
 				<mapping class="br.jogo.risk.model.Jogo" />
 				<mapping class="br.jogo.risk.model.Projeto" />

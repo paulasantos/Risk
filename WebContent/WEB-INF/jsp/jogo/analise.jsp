@@ -53,7 +53,7 @@
 		<div class="form-group" style="margin-left: -30px !important">
 			<label for="prioridade" class="col-sm-2 control-label" style="font-weight: normal;">Prioridade</label>
 			<div class="col-sm-10">
-				<select id="prioridade" name="prioridade" class="required form-control" style="width: 138px;">
+				<select id="prioridade" name="prioridade" class="required form-control" style="width: 138px;>">
 					<option value="A">Alta</option>
 					<option value="M">Média</option>
 					<option value="B">Baixa</option>
@@ -63,7 +63,7 @@
 		<div class="form-group" style="margin-left: -30px !important">
 			<label for="resposta" class="col-sm-2 control-label" style="font-weight: normal;">Tipo de Resposta</label>
 			<div class="col-sm-10">
-				<select id="resposta" name="resposta" class="required form-control" style="width: 138px;"
+				<select id="resposta" name="resposta" class="required form-control" style="width: 138px;">
 						<option value="E">Evitar</option>
 						<option value="T">Transferir</option>
 						<option value="M">Mistigar</option>
