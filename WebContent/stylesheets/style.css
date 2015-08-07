@@ -79,7 +79,7 @@ i.inativo {
 /* line 47, ../sass/_base.scss */
 .separador {
   display: inline-block;
-  background: #ececec;
+  background: #ededed;
   width: 1px;
   height: 15px;
   margin: 0 10px;
@@ -106,24 +106,4 @@ a:hover {
 /* line 72, ../sass/_base.scss */
 .pagination {
   text-align: center;
-}
-
-/*========= Base Colors ===========*/
-/*========= Caculated Colors ===========*/
-/* ================ GENERAL ===================*/
-/* ================ HEADER =================== */
-/* ================ MENU ===================== */
-/* ================ BOX ======================= */
-/* ================ TABLE ===================== */
-/* ================ FEEDS ===================== */
-/* ================ ANIVERSARIOS =============== */
-/* ================ VIDEOS ===================== */
-/* ================ FORM ======================= */
-/* ================ RESERVAS =================== */
-@font-face {
-  font-family: 'FuturaBkBTBook';
-  src: url("../font/futura_bk_bt_book-webfont.eot");
-  src: url("../font/futura_bk_bt_book-webfont.eot?#iefix") format("embedded-opentype"), url("../font/futura_bk_bt_book-webfont.woff") format("woff"), url("../font/futura_bk_bt_book-webfont.ttf") format("truetype"), url("../font/futura_bk_bt_book-webfont.svg#FuturaBkBTBook") format("svg");
-  font-weight: normal;
-  font-style: normal;
 }
